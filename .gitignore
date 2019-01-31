@@ -1,0 +1,24 @@
+# Mac
+.DS_Store
+.env.local
+
+#.idea phpStorm
+.idea
+
+# Logs
+logs
+*.log
+
+#cache
+.cache
+
+# ------------------------------------------------------------------------------
+# Archives generated during the PHP release process
+# ------------------------------------------------------------------------------
+/*.tar.gz
+/*.tar.bz2
+/*.tar.xz
+/*.tar.gz.asc
+/*.tar.bz2.asc
+/*.tar.xz.asc
+
