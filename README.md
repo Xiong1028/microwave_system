@@ -10,6 +10,5 @@
   $mysql>source "your db.sql location"
   ```
 
-  
+- [Simple guidance of Git](https://gitlab.com/xiong1028/lamp2project_group2/wikis/Simple-Guidance-for-Git) in wiki of this repository may help you, if you have any issue on Git
 
-- There is a "Simple guidance of Git" file in wiki of this repository. If you have any issue on git, it may help you.
