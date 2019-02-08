@@ -1,5 +1,5 @@
-DROP DATABASE IF EXISTS path_data;
-CREATE DATABASE path_data CHARACTER SET utf8;
+DROP DATABASE IF EXISTS microwave_path_data;
+CREATE DATABASE microwave_path_data CHARACTER SET utf8;
 
 DROP user IF EXISTS 'lamp2user'@'localhost';
 DROP user IF EXISTS 'lamp2user'@'127.0.0.1';
@@ -10,7 +10,7 @@ GRANT all privileges ON path_data.* TO 'lamp2user'@'127.0.0.1' IDENTIFIED BY 'Te
 GRANT all privileges ON path_data.* TO 'lamp2user'@'::1' IDENTIFIED BY 'Test123!'; 
 
 
-USE path_data;
+USE microwave_path_data;
 
 DROP TABLE IF EXISTS `path_wide`;
 DROP TABLE IF EXISTS `path_endPoints`;
