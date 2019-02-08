@@ -1,14 +1,28 @@
+<<<<<<< HEAD:db/path.sql
 DROP DATABASE IF EXISTS path_data;
 CREATE DATABASE path_data
 CHARACTER
 SET utf8;
+=======
+DROP DATABASE IF EXISTS microwave_path_data;
+CREATE DATABASE microwave_path_data CHARACTER SET utf8;
+
+>>>>>>> 7d4cc074c88303600c7db2df585ce4c092a1de77:db/microwave_path_data.sql
 DROP user IF EXISTS 'lamp2user'@'localhost';
 DROP user IF EXISTS 'lamp2user'@'127.0.0.1';
 DROP user IF EXISTS 'lamp2user'@'::1';
 GRANT all privileges ON path_data.* TO 'lamp2user'@'localhost' IDENTIFIED BY 'Test123!';
 GRANT all privileges ON path_data.* TO 'lamp2user'@'127.0.0.1' IDENTIFIED BY 'Test123!';
+<<<<<<< HEAD:db/path.sql
 GRANT all privileges ON path_data.* TO 'lamp2user'@'::1' IDENTIFIED BY 'Test123!';
 USE path_data;
+=======
+GRANT all privileges ON path_data.* TO 'lamp2user'@'::1' IDENTIFIED BY 'Test123!'; 
+
+
+USE microwave_path_data;
+
+>>>>>>> 7d4cc074c88303600c7db2df585ce4c092a1de77:db/microwave_path_data.sql
 DROP TABLE IF EXISTS `path_wide`;
 DROP TABLE IF EXISTS `path_endPoints`;
 DROP TABLE IF EXISTS `path_midPoints`;
