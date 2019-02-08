@@ -28,7 +28,9 @@ class DB{
     public function disconnectDB(){
         $this->$db_conn->close();
     }
+    
 
+    
 
 
 
