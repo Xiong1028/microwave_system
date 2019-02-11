@@ -5,19 +5,19 @@ DROP user IF EXISTS 'lamp2user'@'localhost';
 DROP user IF EXISTS 'lamp2user'@'127.0.0.1';
 DROP user IF EXISTS 'lamp2user'@'::1';
 
-GRANT all privileges ON path_data.* TO 'lamp2user'@'localhost' IDENTIFIED BY 'Test123!';
-GRANT all privileges ON path_data.* TO 'lamp2user'@'127.0.0.1' IDENTIFIED BY 'Test123!';
-GRANT all privileges ON path_data.* TO 'lamp2user'@'::1' IDENTIFIED BY 'Test123!'; 
+GRANT all privileges ON microwave_path_data.* TO 'lamp2user'@'localhost' IDENTIFIED BY 'Test123!';
+GRANT all privileges ON microwave_path_data.* TO 'lamp2user'@'127.0.0.1' IDENTIFIED BY 'Test123!';
+GRANT all privileges ON microwave_path_data.* TO 'lamp2user'@'::1' IDENTIFIED BY 'Test123!'; 
 
 
 USE microwave_path_data;
 
-DROP TABLE IF EXISTS `path_wide`;
+DROP TABLE IF EXISTS `path_general`;
 DROP TABLE IF EXISTS `path_endPoints`;
 DROP TABLE IF EXISTS `path_midPoints`;
 
 
-CREATE TABLE `path_wide`
+CREATE TABLE `path_general`
 (
 	`path_ID` int(11) not null auto_increment,
 	`path_name` varchar(100) not null unique,
@@ -35,18 +35,18 @@ CREATE TABLE `path_endPoints`
 	`grd_height` float(6,4) not null,
 	`atn_height` float(6,4) not null,
 	primary key(`path_endpt_ID`),
-	FOREIGN KEY(`path_ID`) REFERENCES path_wide(`path_ID`)
+	FOREIGN KEY(`path_ID`) REFERENCES path_general(`path_ID`)
 );
 
 CREATE TABLE `path_midPoints`
 (
 	`path_midpt_ID` int(11) not null auto_increment,
 	`path_ID` int(11) not null,
-	`dist_from start` float(6,4) not null,
+	`dist_from_start` float(6,4) not null,
 	`grd_height` float(6,4) not null,
 	`trn_type` varchar(50) not null,
 	`obstr_height` float(6,4) not null,
 	`obstr_type` varchar(50) not null,
 	primary key(`path_midpt_ID`),
-	FOREIGN KEY(`path_ID`) REFERENCES path_wide(`path_ID`)
+	FOREIGN KEY(`path_ID`) REFERENCES path_general(`path_ID`)
 );
