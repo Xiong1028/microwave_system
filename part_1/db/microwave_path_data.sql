@@ -5,9 +5,9 @@ DROP user IF EXISTS 'lamp2user'@'localhost';
 DROP user IF EXISTS 'lamp2user'@'127.0.0.1';
 DROP user IF EXISTS 'lamp2user'@'::1';
 
-GRANT all privileges ON path_data.* TO 'lamp2user'@'localhost' IDENTIFIED BY 'Test123!';
-GRANT all privileges ON path_data.* TO 'lamp2user'@'127.0.0.1' IDENTIFIED BY 'Test123!';
-GRANT all privileges ON path_data.* TO 'lamp2user'@'::1' IDENTIFIED BY 'Test123!'; 
+GRANT all privileges ON microwave_path_data.* TO 'lamp2user'@'localhost' IDENTIFIED BY 'Test123!';
+GRANT all privileges ON microwave_path_data.* TO 'lamp2user'@'127.0.0.1' IDENTIFIED BY 'Test123!';
+GRANT all privileges ON microwave_path_data.* TO 'lamp2user'@'::1' IDENTIFIED BY 'Test123!';
 
 
 USE microwave_path_data;
@@ -23,7 +23,7 @@ CREATE TABLE `path_wide`
 	`path_name` varchar(100) not null unique,
 	`path_length` float(4,1) not null,   
 	`description` varchar(255) not null,
-	`note` varchar(65534),
+	`note` text,
 	 primary key (`path_ID`)
 );
 
@@ -50,3 +50,4 @@ CREATE TABLE `path_midPoints`
 	primary key(`path_midpt_ID`),
 	FOREIGN KEY(`path_ID`) REFERENCES path_wide(`path_ID`)
 );
+
