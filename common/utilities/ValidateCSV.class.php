@@ -129,8 +129,7 @@ class ValidateCSV
                             $this->errors_arr['path03'][$i]['obstr_height'] = 'The obstruction height must be less than 100 or greater than or equal to 0';
                         }
                         break;
-                    case
-                    4:
+                    case 4:
                         if ($this->path_midPoints_arr[$i][$j] != 0 || empty($this->path_midPoints_arr[$i][$j])) {
                             $this->errors_arr['path03'][$i]['obstr_type'] = 'The obstruction height cannot be empty';
                         } elseif (!in_array($this->path_midPoints_arr[$i][$j], ValidateCSV::$obstr_allowedType_arrs, false)) {
@@ -153,16 +152,20 @@ class ValidateCSV
         return $this->errors_arr;
     }
 
-    public function get_path_wide(){
+    public function get_path_wide()
+    {
         return $this->path_wide_arr;
     }
 
-    public function get_path_endPoints(){
+    public function get_path_endPoints()
+    {
         return $this->path_endPoints_arr;
     }
 
-    public function get_path_midPoints(){
+    public function get_path_midPoints()
+    {
         return $this->path_midPoints_arr;
     }
 }
+
 ?>
