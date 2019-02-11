@@ -23,7 +23,7 @@ CREATE TABLE `path_general`
 	`path_name` varchar(100) not null unique,
 	`path_length` float(4,1) not null,   
 	`description` varchar(255) not null,
-	`note` varchar(65534),
+	`note` varchar(65534), 
 	 primary key (`path_ID`)
 );
 
@@ -50,3 +50,4 @@ CREATE TABLE `path_midPoints`
 	primary key(`path_midpt_ID`),
 	FOREIGN KEY(`path_ID`) REFERENCES path_general(`path_ID`)
 );
+
