@@ -235,7 +235,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 		chmod($_FILES['path']['tmp_name'], 0777);
 		if(!is_dir('uploads')){ mkdir("uploads", 0777); }
 		$fn = $_FILES['path']['name'];
-		$fileName = "uploads/$fn";
+		$fileName = "uploads/$fn" . rand(10000, 99999) . "." . $ext;
 		$success = move_uploaded_file($_FILES['path']['tmp_name'], $fileName);
 		if ($success){
 //			$qry = "insert into path_general(note) values('".$fileName."');";
@@ -247,7 +247,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 		}else{
 			$upload_msg[] = "Fail to save file.";
 		}
-    }
+	}
 }
 ?>
 
