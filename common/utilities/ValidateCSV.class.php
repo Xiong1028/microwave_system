@@ -7,7 +7,7 @@
 
 class ValidateCSV
 {
-    private $errors_arr;
+    private $errors_arr=array();
     private $path_wide_arr;
     private $path_endPoints_arr;
     private $path_midPoints_arr;

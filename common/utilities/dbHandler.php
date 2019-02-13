@@ -1,6 +1,6 @@
 <?php
 /**
- *  Purpose: mutiple functions for handling databases
+ *  Purpose: multiple functions for handling databases
  *  Authors: Hui, Debora, Jihye, Xiong, Jane
  *  Data:    Feb 10, 2019
  *
@@ -34,36 +34,55 @@ function db_insert($db_conn, $qry)
 }
 
 //db_trans_exec()
-function db_trans_exec($db_conn, ...$qrys)
+function db_trans_exec($db_conn, $qryArr)
 {
 
     $db_conn->autocommit(false);
 
     $results = [];
 
-    foreach ($qrys as $qry) {
-        $results[] = $db_conn->query($qry) ? 0 : 1;
+    foreach ($qryArr as $qry) {
+        $results[] = $db_conn->query($qry)?0:1;
     }
 
     if (!array_sum($results)) {
         $db_conn->commit();
         return true;
     } else {
-        $db_conn->rallback();
+        $db_conn->rollback();
+        echo '{ "code": "1251" ,"data":{"msg":"Fail to execute SQL "}}';
         return false;
     }
 }
 
 //db_select(column)
-function db_fetch_byColumenName($db_conn,$column_name,$db_name){
-    $sel_qry = "select".$column_name." from ".$db_name;
+function db_select($db_conn,$tableName,$objColName,$conColName,$condition){
+
+    $sel_qry = "select ".$objColName." from ".$tableName." where ".$conColName."= '".$condition."';";
 
     $result = $db_conn->query($sel_qry);
     $colData = array();
 
     if($result->num_rows>0){
         while($row = $result->fetch_assoc()){
-            array_push($colData,$row[$column_name]);
+            array_push($colData,$row[$objColName]);
+        }
+    }
+    return $colData;
+}
+
+
+//db_select_oneCol
+function db_select_oneCol($db_conn,$tableName,$objColName){
+
+    $sel_qry = "select ".$objColName." from ".$tableName.";";
+
+    $result = $db_conn->query($sel_qry);
+    $colData = array();
+
+    if($result->num_rows>0){
+        while($row = $result->fetch_assoc()){
+            array_push($colData,$row[$objColName]);
         }
     }
     return $colData;

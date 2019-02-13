@@ -6,9 +6,10 @@
 **/
 
 require_once("../../common/templates/header.php");
+require_once("../../common/utilities/dbHandler.php");
 ?>
-<div class="container">
-    <h3>Reset Microwave Path Data</h3>
+<div class="container" id="resetContainer">
+    <h2>Reset Microwave Path Data</h2>
     <p class="text-danger">
         <i class="fa fa-warning" aria-hidden="true" style="margin-right: 5px"></i>
         Warning: Microwave Data will be overridden and restored to original status.
@@ -18,20 +19,28 @@ require_once("../../common/templates/header.php");
         Path Name:
         <select name="pathSel" id="pathSel">
             <option value="">Please Select Path</option>
-            <option value="path01">Path 01</option>
-            <option value="path02">Path 02</option>
-            <option value="path03">Path 03</option>
+            <?php
+            $db_conn = connect_db();
+            $pathNameItems = db_select_oneCol($db_conn, 'path_general', 'path_name');
+            disconnect_db($db_conn);
+            foreach ($pathNameItems as $item) {
+                ?>
+                <option value="<?php echo $item; ?>"><?php echo $item; ?></option>
+                <?php
+            }
+            ?>
         </select>
         <div>
-            <input id="reset" type="submit" name="reset" value="reset" class="btn btn-primary"
-                    style="margin-top: 30px">
-            </input>
+            <input id="reset" type="submit" name="reset" value="reset" class="btn btn-outline-secondary"
+                   style="margin-top: 30px"/>
         </div>
     </form>
+
     <br/><br/>
     <div id="msg"></div>
 </div>
 
 <?php
+
 require_once("../../common/templates/footer.php");
 ?>

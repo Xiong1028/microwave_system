@@ -24,7 +24,7 @@
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse  offset-lg-6" id="navbarNav">
+    <div class="collapse navbar-collapse  offset-lg-8" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item ">
                 <a class="nav-link" href="/lamp2project_group2/part_1/includes/uploads.php"><i class="fa fa-upload" aria-hidden="true" style="margin-right: 5px"></i>Upload

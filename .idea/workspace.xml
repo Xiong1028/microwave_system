@@ -1,13 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/part_1/includes/reset_ajax.php" line="50" />
+    <bookmark url="file://$PROJECT_DIR$/part_1/includes/reset_ajax.php" line="83" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c31a6083-4bfd-4b55-b59e-0b254c99ad13" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/utilities/utilities.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/templates/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/common/templates/footer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/templates/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/common/templates/header.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/utilities/ValidateCSV.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/common/utilities/ValidateCSV.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/utilities/dbhandler.php" beforeDir="false" afterPath="$PROJECT_DIR$/common/utilities/dbHandler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/utilities/readCSV.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/part_1/includes/resetData.php" beforeDir="false" afterPath="$PROJECT_DIR$/part_1/includes/resetData.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/part_1/includes/reset_ajax.php" beforeDir="false" afterPath="$PROJECT_DIR$/part_1/includes/reset_ajax.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/part_1/includes/uploads.php" beforeDir="false" afterPath="$PROJECT_DIR$/part_1/includes/uploads.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/part_1/js/reset_ajax.js" beforeDir="false" afterPath="$PROJECT_DIR$/part_1/js/ResetAjax.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -32,12 +40,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/index.php">
+        <entry file="file://$PROJECT_DIR$/part_1/js/ResetAjax.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <folding>
-                <element signature="e#6#150#0#PHP" expanded="true" />
-              </folding>
+            <state relative-caret-position="120">
+              <caret line="8" column="31" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -45,13 +51,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/common/utilities/ValidateCSV.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="587">
-              <caret line="170" column="2" selection-start-line="170" selection-start-column="2" selection-end-line="170" selection-end-column="2" />
+            <state relative-caret-position="-28">
+              <caret line="24" column="36" lean-forward="true" selection-start-line="24" selection-start-column="36" selection-end-line="24" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/part_1/includes/resetData.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="407">
+              <caret line="34" column="45" selection-start-line="34" selection-start-column="45" selection-end-line="34" selection-end-column="45" />
               <folding>
-                <element signature="n#validateTable1#0;n#ValidateCSV#0;n#!!top" />
-                <element signature="n#validateTable2#0;n#ValidateCSV#0;n#!!top" />
-                <element signature="n#validateTable3#0;n#ValidateCSV#0;n#!!top" />
-                <element signature="n#get_errors_arr#0;n#ValidateCSV#0;n#!!top" />
+                <element signature="e#6#152#0#PHP" expanded="true" />
+                <element signature="n#style#0;n#form#0;n#div#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -60,39 +73,32 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/part_1/includes/uploads.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1395">
-              <caret line="172" column="26" lean-forward="true" selection-start-line="172" selection-start-column="26" selection-end-line="172" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/common/utilities/readCSV.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="23" column="2" lean-forward="true" selection-start-line="23" selection-start-column="2" selection-end-line="23" selection-end-column="2" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/common/utilities/dbhandler.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="51" column="29" lean-forward="true" selection-start-line="51" selection-start-column="29" selection-end-line="51" selection-end-column="29" />
-              <folding>
-                <element signature="n#connect_db#0;n#!!top" />
-                <element signature="n#disconnect_db#0;n#!!top" />
-              </folding>
+            <state relative-caret-position="15">
+              <caret line="58" selection-start-line="58" selection-end-line="58" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
+        <entry file="file://$PROJECT_DIR$/part_1/includes/reset_ajax.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="5" lean-forward="true" selection-start-line="3" selection-start-column="5" selection-end-line="3" selection-end-column="5" />
+            <state relative-caret-position="587">
+              <caret line="83" column="2" lean-forward="true" selection-start-line="83" selection-start-column="2" selection-end-line="83" selection-end-column="2" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/common/utilities/utilities.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="54" column="2" lean-forward="true" selection-start-line="54" selection-start-column="2" selection-end-line="54" selection-end-column="2" />
+              <folding>
+                <element signature="e#144#235#0#PHP" />
+                <element signature="n#read_CSV#0;n#!!top" />
+                <element signature="e#548#803#0#PHP" />
+                <element signature="n#check_file_existed#0;n#!!top" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -110,6 +116,7 @@
     <findStrings>
       <find>submit</find>
       <find>move</find>
+      <find>roll</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -121,30 +128,39 @@
         <option value="$PROJECT_DIR$/db/db.class.php" />
         <option value="$PROJECT_DIR$/common/public/footer.php" />
         <option value="$PROJECT_DIR$/common/public/header.php" />
-        <option value="$PROJECT_DIR$/common/templates/header.php" />
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/common/db/db.class.php" />
-        <option value="$PROJECT_DIR$/common/templates/footer.php" />
-        <option value="$PROJECT_DIR$/part_1/includes/resetData.php" />
-        <option value="$PROJECT_DIR$/part_1/db/microwave_path_data.sql" />
         <option value="$PROJECT_DIR$/common/utilities/db.class.php" />
         <option value="$PROJECT_DIR$/common/utilities/validateData.php" />
         <option value="$PROJECT_DIR$/common/utilities/Validation.php" />
         <option value="$PROJECT_DIR$/common/utilities/ValidateCSV.php" />
         <option value="$PROJECT_DIR$/common/uploads/path011.csv" />
-        <option value="$PROJECT_DIR$/part_1/js/reset_ajax.js" />
-        <option value="$PROJECT_DIR$/part_1/includes/reset_ajax.php" />
-        <option value="$PROJECT_DIR$/common/utilities/dbhandler.php" />
-        <option value="$PROJECT_DIR$/common/utilities/ValidateCSV.class.php" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/part_1/includes/uploads.php" />
+        <option value="$PROJECT_DIR$/common/templates/header.php" />
+        <option value="$PROJECT_DIR$/part_1/db/microwave_path_data.sql" />
+        <option value="$PROJECT_DIR$/part_1/js/reset_ajax.js" />
+        <option value="$PROJECT_DIR$/part_1/includes/getPathName.php" />
+        <option value="$PROJECT_DIR$/common/utilities/dbhandler.php" />
+        <option value="$PROJECT_DIR$/common/utilities/Utility.class.php" />
+        <option value="$PROJECT_DIR$/common/utilities/readCSV.php" />
+        <option value="$PROJECT_DIR$/common/utilities/ValidateCSV.class.php" />
+        <option value="$PROJECT_DIR$/part_1/includes/uploads/test.php" />
+        <option value="$PROJECT_DIR$/part_1/js/part1_ajax.js" />
+        <option value="$PROJECT_DIR$/common/templates/footer.php" />
+        <option value="$PROJECT_DIR$/part_1/includes/resetData.php" />
+        <option value="$PROJECT_DIR$/common/utilities/utilities.php" />
+        <option value="$PROJECT_DIR$/common/utilities/dbHandler.php" />
+        <option value="$PROJECT_DIR$/part_1/js/ResetAjax.js" />
+        <option value="$PROJECT_DIR$/part_1/includes/reset_ajax.php" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="376" />
-    <option name="y" value="81" />
-    <option name="width" value="1057" />
-    <option name="height" value="742" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="1" />
+    <option name="y" value="25" />
+    <option name="width" value="639" />
+    <option name="height" value="523" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -154,6 +170,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -161,11 +178,32 @@
               <item name="lamp2project_group2" type="b2602c69:ProjectViewProjectNode" />
               <item name="lamp2project_group2" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="lamp2project_group2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lamp2project_group2" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lamp2project_group2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lamp2project_group2" type="462c0819:PsiDirectoryNode" />
+              <item name="part_1" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lamp2project_group2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lamp2project_group2" type="462c0819:PsiDirectoryNode" />
+              <item name="part_1" type="462c0819:PsiDirectoryNode" />
+              <item name="includes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lamp2project_group2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lamp2project_group2" type="462c0819:PsiDirectoryNode" />
+              <item name="part_1" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -214,21 +252,25 @@
       <workItem from="1549765049597" duration="4385000" />
       <workItem from="1549812974975" duration="35384000" />
       <workItem from="1549901967092" duration="4011000" />
+      <workItem from="1549917362928" duration="2100000" />
+      <workItem from="1549977517232" duration="13728000" />
+      <workItem from="1550000087298" duration="16972000" />
+      <workItem from="1550065034676" duration="7467000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="82834000" />
+    <option name="totallyTimeSpent" value="123101000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="376" y="81" width="1057" height="742" extended-state="0" />
+    <frame x="67" y="25" width="1849" height="864" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27695352" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17581809" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32974428" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32833788" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -256,74 +298,12 @@
     <entry file="file://$PROJECT_DIR$/db/db.class.php" />
     <entry file="file://$PROJECT_DIR$/common/utilities/db.class.php" />
     <entry file="file://$PROJECT_DIR$/common/utilities/validateData.php" />
-    <entry file="file://$PROJECT_DIR$/common/uploads/path01.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="4" selection-start-line="4" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common/uploads/path011.csv">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/part_1/includes/resetData.php">
+    <entry file="file://$PROJECT_DIR$/common/uploads/path01.csv" />
+    <entry file="file://$PROJECT_DIR$/common/uploads/path011.csv" />
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
-          <caret line="3" column="8" selection-start-line="1" selection-end-line="5" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/part_1/db/microwave_path_data.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="313">
-          <caret line="23" column="39" selection-start-line="23" selection-start-column="39" selection-end-line="23" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/part_1/js/reset_ajax.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="15" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/part_1/includes/reset_ajax.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common/templates/footer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="27" lean-forward="true" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
-          <folding>
-            <element signature="e#6#132#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common/templates/header.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="523">
-          <caret line="38" column="74" selection-start-line="38" selection-start-column="46" selection-end-line="38" selection-end-column="74" />
-          <folding>
-            <element signature="e#6#132#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common/utilities/ValidateCSV.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="587">
-          <caret line="170" column="2" selection-start-line="170" selection-start-column="2" selection-end-line="170" selection-end-column="2" />
-          <folding>
-            <element signature="n#validateTable1#0;n#ValidateCSV#0;n#!!top" />
-            <element signature="n#validateTable2#0;n#ValidateCSV#0;n#!!top" />
-            <element signature="n#validateTable3#0;n#ValidateCSV#0;n#!!top" />
-            <element signature="n#get_errors_arr#0;n#ValidateCSV#0;n#!!top" />
-          </folding>
+          <caret line="3" column="5" selection-start-line="3" selection-start-column="5" selection-end-line="3" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -336,35 +316,114 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/common/utilities/readCSV.php">
+    <entry file="file://$PROJECT_DIR$/common/templates/header.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="33" column="83" selection-start-line="33" selection-start-column="83" selection-end-line="33" selection-end-column="83" />
+          <folding>
+            <element signature="e#6#132#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/part_1/includes/getPathName.php" />
+    <entry file="file://$PROJECT_DIR$/part_1/includes/uploads/path02.csv">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/part_1/includes/uploads/path03.csv">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/utilities/Utility.class.php" />
+    <entry file="file://$PROJECT_DIR$/part_1/includes/uploads/test.php" />
+    <entry file="file://$PROJECT_DIR$/part_1/includes/uploads/path01.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
-          <caret line="23" column="2" lean-forward="true" selection-start-line="23" selection-start-column="2" selection-end-line="23" selection-end-column="2" />
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/part_1/db/microwave_path_data.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="34" column="3" lean-forward="true" selection-start-line="34" selection-start-column="3" selection-end-line="34" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/utilities/readCSV.php" />
+    <entry file="file://$PROJECT_DIR$/common/templates/footer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="41" selection-start-line="14" selection-start-column="41" selection-end-line="14" selection-end-column="41" />
+          <folding>
+            <element signature="e#6#132#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/part_1/includes/uploads.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1395">
-          <caret line="172" column="26" lean-forward="true" selection-start-line="172" selection-start-column="26" selection-end-line="172" selection-end-column="26" />
+        <state relative-caret-position="15">
+          <caret line="58" selection-start-line="58" selection-end-line="58" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/common/utilities/dbhandler.php">
+    <entry file="file://$PROJECT_DIR$/common/utilities/ValidateCSV.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="51" column="29" lean-forward="true" selection-start-line="51" selection-start-column="29" selection-end-line="51" selection-end-column="29" />
+        <state relative-caret-position="-28">
+          <caret line="24" column="36" lean-forward="true" selection-start-line="24" selection-start-column="36" selection-end-line="24" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/utilities/dbHandler.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="36" column="41" selection-start-line="36" selection-start-column="41" selection-end-line="36" selection-end-column="41" />
           <folding>
+            <element signature="e#6#142#0#PHP" expanded="true" />
             <element signature="n#connect_db#0;n#!!top" />
-            <element signature="n#disconnect_db#0;n#!!top" />
+            <element signature="n#db_insert#0;n#!!top" />
+            <element signature="n#db_trans_exec#0;n#!!top" />
+            <element signature="n#db_select#0;n#!!top" />
+            <element signature="n#db_select_oneCol#0;n#!!top" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/common/utilities/utilities.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="5" lean-forward="true" selection-start-line="3" selection-start-column="5" selection-end-line="3" selection-end-column="5" />
+        <state relative-caret-position="195">
+          <caret line="54" column="2" lean-forward="true" selection-start-line="54" selection-start-column="2" selection-end-line="54" selection-end-column="2" />
+          <folding>
+            <element signature="e#144#235#0#PHP" />
+            <element signature="n#read_CSV#0;n#!!top" />
+            <element signature="e#548#803#0#PHP" />
+            <element signature="n#check_file_existed#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/part_1/js/ResetAjax.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="31" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/part_1/includes/resetData.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="407">
+          <caret line="34" column="45" selection-start-line="34" selection-start-column="45" selection-end-line="34" selection-end-column="45" />
+          <folding>
+            <element signature="e#6#152#0#PHP" expanded="true" />
+            <element signature="n#style#0;n#form#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/part_1/includes/reset_ajax.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="587">
+          <caret line="83" column="2" lean-forward="true" selection-start-line="83" selection-start-column="2" selection-end-line="83" selection-end-column="2" />
         </state>
       </provider>
     </entry>

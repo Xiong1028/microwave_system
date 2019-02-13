@@ -243,16 +243,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 	}
 }
 ?>
-
-    <h2>Part C Web Form</h2>
-    <label>Upload a path file</label>
+    <div class="container">
+    <h2>Upload file</h2>
+    <label>Please choose the file:</label>
     <form method="post" enctype="multipart/form-data"> 
 		<input type="file" name="path" accept="text/*"/>
         <br/><br/>
 		<input class="btn btn-outline-secondary" type="submit" value="Submit" />
 		<div><?php foreach($upload_msg as $m){echo $m;} ?></div>
 	</form>
-	
+    </div>
 
 <?php
 require_once("../../common/templates/footer.php");
