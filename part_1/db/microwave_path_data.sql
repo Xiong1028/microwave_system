@@ -23,7 +23,7 @@ CREATE TABLE `path_general`
 	`path_name` varchar(100) not null unique,
 	`path_length` float(4,1) not null,   
 	`description` varchar(255) not null,
-	`note` text,
+	`note` text(65534), 
 	 primary key (`path_ID`)
 );
 
