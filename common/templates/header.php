@@ -31,7 +31,7 @@
                     File</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#"> <i class="fa fa-table" aria-hidden="true" style="margin-right: 5px"></i>Display
+                <a class="nav-link" href="./part_1/includes/display_data.php"> <i class="fa fa-table" aria-hidden="true" style="margin-right: 5px"></i>Display
                     Data</a>
             </li>
             <li class="nav-item">
