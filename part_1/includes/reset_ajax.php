@@ -74,8 +74,6 @@ if (check_file_existed("./uploads", $pathFileName)) {
         echo '{ "code": "400" ,"data":{"msg":"Fail to reset ' . $pathName . ' data"}}';
     }
 
-    $path_data_arr['code'] = 'ok';
-
     disconnect_db($db_conn);
 } else {
     echo '{ "code": "404" ,"data":{"msg":"The '.$pathName.' file is not uploaded"}}';

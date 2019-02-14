@@ -24,14 +24,14 @@
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse  offset-lg-8" id="navbarNav">
+    <div class="collapse navbar-collapse " id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item ">
                 <a class="nav-link" href="/lamp2project_group2/part_1/includes/uploads.php"><i class="fa fa-upload" aria-hidden="true" style="margin-right: 5px"></i>Upload
                     File</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="./part_1/includes/display_data.php"> <i class="fa fa-table" aria-hidden="true" style="margin-right: 5px"></i>Display
+                <a class="nav-link" href="/lamp2project_group2/part_1/includes/display_data.php"> <i class="fa fa-table" aria-hidden="true" style="margin-right: 5px"></i>Display
                     Data</a>
             </li>
             <li class="nav-item">
