@@ -1,6 +1,5 @@
 $(document).ready(function () {
     $('#resetForm').submit(function (event) {
-
         var selVal = $('#pathSel').val();
         if (selVal) {
             $.post("../includes/reset_ajax.php", $(this).serialize(), onNewPost);

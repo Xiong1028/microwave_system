@@ -6,6 +6,7 @@
 **/
 
 require_once("../../common/templates/header.php");
+require_once("../../common/utilities/utilities.php");
 ?>
 
 <?php
@@ -21,7 +22,7 @@ function dbFile($dt, $fn){
 	// validate line 1 
 	for ($i=0; $i<4; $i++){
 		if(!isset($dt[0][$i])){
-			$err_msg[] = "Data must exsit!";
+			$err_msg[] = "Data must exist!";
 		}else {
 			$dataGen[0][$i] = trim($dt[0][$i]);
 			if(strlen($dataGen[0][$i]) == 0){
@@ -56,6 +57,10 @@ function dbFile($dt, $fn){
 			$dataGen[0][3] = trim($dt[0][3]);
 			
 			if(strlen($dataGen[0][3]) <= 65534){
+				// prevent SQL injection
+				for($i=0; $i<3; $i++){
+					$dataGen[0][$i] = $db_conn->real_escape_string($dataGen[0][$i]);
+				}
 
 				$qry = "INSERT INTO path_general(path_name, path_length, description, note) VALUES('".$dataGen[0][0]."', '".$dataGen[0][1]."', '".$dataGen[0][2]."', '".$dataGen[0][3]."');";
 				$db_conn->query($qry);
@@ -68,6 +73,11 @@ function dbFile($dt, $fn){
 				$db_conn->rollback();
 			}
 		}else{
+			// prevent SQL injection
+			for($i=0; $i<3; $i++){
+				$dataGen[0][$i] = $db_conn->real_escape_string($dataGen[0][$i]);
+			}
+
 			$qry = "INSERT INTO path_general(path_name, path_length, description) VALUES('".$dataGen[0][0]."', '".$dataGen[0][1]."', '".$dataGen[0][2]."');";
 			$db_conn->query($qry);
 			if(!$db_conn){
@@ -100,6 +110,11 @@ function dbFile($dt, $fn){
 	// save line 2 & 3 into path_endPoints table
 	if(count($err_msg) == 0){
 		for($i=1; $i<3; $i++){
+			// prevent SQL injection
+			for($j=0; $j<3; $j++){
+				$dataEnd[$i][$j] = $db_conn->real_escape_string($dataEnd[$i][$j]);
+			}
+
 			if(strpos($fn, 'path01')){
 				$qry = "INSERT INTO path_endPoints(path_ID, dist_from_start, grd_height, atn_height) VALUES((SELECT path_ID FROM path_general WHERE path_name = 'Pah 01'), '".$dataEnd[$i][0]."', '".$dataEnd[$i][1]."', '".$dataEnd[$i][2]."');";
 			}
@@ -120,10 +135,10 @@ function dbFile($dt, $fn){
 
 
 	// validate line 4 and the following
-	for($i=3; $i<17; $i++){ 
-		$trnType = array('Grassland', 'Rough Grassland', 'Smooth rock', 'Bare Rock', 'Bare earth', 'Paved Surface', 'Lake', 'Ocean', 'Rough rock', 'Bare soil');
-		$obstrType = array('None', 'Trees', 'Brush', 'Building', 'Webbed Towers', 'Solid Towers', 'Power Cables');
-		
+	$trnType = array('Grassland', 'Rough Grassland', 'Smooth rock', 'Bare Rock', 'Bare earth', 'Paved Surface', 'Lake', 'Ocean', 'Rough rock', 'Bare soil');
+	$obstrType = array('None', 'Trees', 'Brush', 'Building', 'Webbed Towers', 'Solid Towers', 'Power Cables');
+
+	for($i=3; $i<17; $i++){ 		
 		for ($j=0; $j<5; $j++){
 			if(!isset($dt[$i][$j])){
 				$err_msg[] = "Data must exsit!";
@@ -154,6 +169,11 @@ function dbFile($dt, $fn){
 	// save line 4 and the following into path_midPoints table
 	if(count($err_msg) == 0){
 		for($i=3; $i<17; $i++){
+			// prevent SQL injection
+			for($j=0; $j<5; $j++){
+				$dataMid[$i][$j] = $db_conn->real_escape_string($dataMid[$i][$j]);
+			}
+
 			if(strpos($fn, 'path01')){
 				$qry = "INSERT INTO path_midPoints(path_ID, dist_from_start, grd_height, trn_type, obstr_height, obstr_type) 
 					VALUES((SELECT path_ID FROM path_general WHERE path_name = 'Pah 01'), '".$dataMid[$i][0]."', '".$dataMid[$i][1]."', 
@@ -205,17 +225,24 @@ function loadFile($fname){
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     // validate meta data for uploaded file
 	if ($_FILES['path']['error'] == 0 && $_FILES['path']['size'] > 0){
-
-		$ext = strtolower(pathinfo($_FILES['path']['name'], PATHINFO_EXTENSION));
-
-		if (!file_exists($_FILES['path']['tmp_name'])){ 
-			$upload_msg[] = "The file doesn't exist! ";
-			$isValid = false; 
-		}else if ($ext !== 'csv'){
-			$upload_msg[] = "That file type isn't accepted!";
+	
+        $pathFilename = substr($_FILES['path']['name'],0,strpos($_FILES['path']['name'], '.'));
+		
+		// check if the file already exsits in the permanent location
+		if(!check_file_existed('./uploads',$pathFilename)){
+			$ext = strtolower(pathinfo($_FILES['path']['name'], PATHINFO_EXTENSION));
+			if (!file_exists($_FILES['path']['tmp_name'])){ 
+				$upload_msg[] = "The file doesn't exist!";
+				$isValid = false; 
+			}else if ($ext !== 'csv'){
+				$upload_msg[] = "That file type isn't accepted!";
+				$isValid = false;
+			}
+		}else{
+			$upload_msg[] = "File already exsits.";
 			$isValid = false;
-		}
-			
+		}			
+
 	}else{
 		$upload_msg[] = "Your text file failed.";
 		$isValid = false;
@@ -243,16 +270,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 	}
 }
 ?>
-    <div class="container">
-    <h2>Upload file</h2>
-    <label>Please choose the file:</label>
-    <form method="post" enctype="multipart/form-data"> 
+<div class="container">
+    <h2>File Upload</h2>
+    <label style="margin-top:30px;">Please Choose the file path:</label>
+    <form method="post" enctype="multipart/form-data" > 
 		<input type="file" name="path" accept="text/*"/>
         <br/><br/>
-		<input class="btn btn-outline-secondary" type="submit" value="Submit" />
-		<div><?php foreach($upload_msg as $m){echo $m;} ?></div>
+		<input class="btn btn-outline-secondary" type="submit" value="Upload"/>
+		<div style="margin-top:20px;"><?php foreach($upload_msg as $m){echo $m;} ?></div>
 	</form>
-    </div>
+</div>	
 
 <?php
 require_once("../../common/templates/footer.php");

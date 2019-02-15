@@ -87,4 +87,23 @@ function db_select_oneCol($db_conn,$tableName,$objColName){
     }
     return $colData;
 }
+
+
+/**
+ *  Purpose: a function to prevent sql injection
+ *  Parameters: @db_conn
+ *              @dataArr  array
+ *  return: Array
+ */
+
+ function db_prevent_SQLInjection($db_conn,$dataArr){
+    if(is_array($dataArr)){
+        for($i=0;$i<count($dataArr);$i++){
+            db_prevent_SQLInjection($db_conn,$dataArr[$i]);
+        }
+    }else{
+        $dataArr = $db_conn->real_escape_string(trim($dataArr));
+    }
+    return $dataArr;
+ }
 ?>

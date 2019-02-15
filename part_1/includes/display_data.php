@@ -28,10 +28,12 @@ if ($rs->num_rows > 0){
 $arrlength=count($paths);
 ?>
 
-
-<form method="post" id="formSelectPath">
+<div class="container">
+    <h2>Display Microwave Data</h2>
+    
+<form method="post" id="formSelectPath" style="margin-top: 30px;">
+    <label for="selectdPath">Please select the path name:</label>
     <select name="selectedPath">
-
         <?php 
             for($x=0;$x<$arrlength;$x++)
             {
@@ -40,15 +42,11 @@ $arrlength=count($paths);
         ?>
 
     </select>
-    <input type="submit" name="submit" value="Get tables" />
+    <div style="margin-bottom:50px;"><input type="submit" name="submit" value="Display" class="btn btn-outline-secondary" /></div>
+    
 </form>
-<br>
-<span>Table of the general path information</span>
-<div id="output"></div><br>
-<span>Starting point</span>
-<div id="output2"></div><br>
-<span>End Point</span>
-<div id="output3"></div>
+<div id="output"></div>
+</div>
 
 
 <script>
@@ -63,33 +61,34 @@ $(document).ready(function() {
     var onPathSelected = function(response) {
         var pd = response.pathData;
         // First table
-        var table = "<table border=1><tr><th>ID</th><th>Path Name</th><th>Path length</th><th>Description</th><th>Note</th></tr>";
+        var table = "<h4>Path_General</h4><table class='table table-striped table-hover'><tr><th>Path Name</th><th>Path length</th><th>Description</th><th>Note</th></tr>";
         
-        table+="<tr><td>"+pd.id+"</td><td>"+pd.name + "</td><td>" + pd.length + "</td><td>" + pd.description + "</td><td>" + pd.note +"</td></tr>";
-        table+="</table>";
-        $("#output").html(table);
+        table+="<tr><td>"+pd.name + "</td><td>" + pd.length + "</td><td>" + pd.description + "</td><td>" + pd.note +"</td></tr>";
+        table+="</table><br><br>";
 
-        // $("#output").html(response.midpoints[0].trnType +"<br>"+response.endpoints[0].atnHeight);
-
-        //Second Table
-        var sd = response.midpoints;
-        var Stable = "<table border=1><tr><th>ID</th><th>Distance from start</th><th>Ground Height</th><th>Terrain Type</th><th>Obstruction Height</th><th>Obstruction Type</th></tr>";
-        for (var i = 0; i < response.midpoints.length; i++) {
-            Stable+="<tr><td>"+sd[i].midpointID+"</td><td>"+sd[i].distance + "</td><td>" + sd[i].groundHeight + "</td><td>" + sd[i].trnType 
-            + "</td><td>" + sd[i].obstrHeight +"</td><td>"+sd[i].obstrType+"</td></tr>";
-        }
-        Stable+="</table>"; 
-        $("#output2").html(Stable);       
-
-        //Third Table
+         //Second Table
         var td = response.endpoints;
-        var Ttable = "<table border=1><tr><th>ID</th><th>Distance from start</th><th>Ground Height</th><th>Atn Height</th></tr>";
+        table += "<h4>Path_EndPoints</h4><table class='table table-striped table-hover'><tr><th>Distance from start</th><th>Ground Height</th><th>Atn Height</th></tr>";
         for (var j = 0; j < response.endpoints.length; j++) {
             
-            Ttable+="<tr><td>"+td[j].endptID+"</td><td>"+td[j].distance+"</td><td>"+td[j].groundHeight+"</td><td>"+td[j].atnHeight+"</td></tr>";
+            table+="<tr><td>"+td[j].distance+"</td><td>"+td[j].groundHeight+"</td><td>"+td[j].atnHeight+"</td></tr>";
         }
-        Ttable+="</table>"; 
-        $("#output3").html(Ttable);       
+        table+="</table><br><br>"; 
+
+        //Third Table
+        var sd = response.midpoints;
+        table += "<h4>Path_MidPoints</h4><table class='table table-striped table-hover'><tr><th>Distance from start</th><th>Ground Height</th><th>Terrain Type</th><th>Obstruction Height</th><th>Obstruction Type</th></tr>";
+        for (var i = 0; i < response.midpoints.length; i++) {
+            table+="<tr><td>"+sd[i].distance + "</td><td>" + sd[i].groundHeight + "</td><td>" + sd[i].trnType 
+            + "</td><td>" + sd[i].obstrHeight +"</td><td>"+sd[i].obstrType+"</td></tr>";
+        }
+        table+="</table>"; 
+           
+
+       
+
+
+        $("#output").html(table);       
     };
 });
 </script>

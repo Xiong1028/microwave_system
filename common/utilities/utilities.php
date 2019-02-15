@@ -33,8 +33,9 @@ function read_CSV($path){
 /*
  *  Purpose: A function to check if a file including pathName fields is uploaded
  *  Paramerte: @path  eg:the uploaded permanent location directory /lamp2project_group2/part_1/includes/uploads
- *             @pathName
- *  return: true or false
+ *             @pathName string eg 'path01'
+ *  return: true  -> file is already existed
+ *          false -> file is not existed
  *
  * */
 
@@ -50,6 +51,5 @@ function check_file_existed($path,$pathName){
     }
     return false;
 }
-
 
 ?>

@@ -10,10 +10,9 @@ require_once("../../common/utilities/utilities.php");
 require_once('../../common/utilities/dbHandler.php');
 require_once('../../common/utilities/ValidateCSV.class.php');
 
+//get the data from reponse
 $pathName = $_POST['pathSel'];
-
 $pathFileName = str_replace('Pah ', 'path', trim($pathName));
-
 
 //if the file is uploaded, read csv file to reset the data in the database
 if (check_file_existed("./uploads", $pathFileName)) {
@@ -27,56 +26,67 @@ if (check_file_existed("./uploads", $pathFileName)) {
     $db_conn = connect_db();
 
     //declare arrays to save data of csv file
-    $path_wide_data = array();
+    $path_general_data = array();
     $path_endPoints_data = array();
     $path_midPoints_data = array();
+   
 
-    //validate the data and reset the data into database
+    //validate the data and get the data from the csv File
     if (!count($validationObj->get_errors_arr())) {
-        $path_wide_data = $validationObj->get_path_wide();
+        $path_general_data = $validationObj->get_path_general();
         $path_endPoints_data = $validationObj->get_path_endPoints();
         $path_midPoints_data = $validationObj->get_path_midPoints();
     }
 
-    //execute the reset operations
+    //get the path_ID from table path_general
     $path_ID = db_select($db_conn, 'path_general', 'path_ID', 'path_name', $pathName)[0];
 
+    //an Array to save the reset operations SQL query
     $qrys_Arr = array();
 
-    //SQL queries of deleting data in path_endPoints and path_midPoints
+    /* 
+     *Add SQL queries of deleting data in path_endPoints and path_midPoints
+     **/
     $del_pathEndPoints_qry = "DELETE FROM path_endPoints WHERE path_ID = " . $path_ID . ";";
-    array_push($qrys_Arr, $del_pathEndPoints_qry);
-
     $del_pathMidPoints_qry = "DELETE FROM path_midPoints WHERE path_ID = " . $path_ID . ";";
-    array_push($qrys_Arr, $del_pathMidPoints_qry);
+    array_push($qrys_Arr,$del_pathEndPoints_qry,$del_pathMidPoints_qry);
 
-    //SQL queries of updating data in path_general table
-    $update_pathGenenal_qry = "UPDATE path_general SET path_name = '" . $path_wide_data[0][0] . "', path_length ='" . $path_wide_data[0][1] . "', description = '" . $path_wide_data[0][2] . "', note = '" . $path_wide_data[0][3] . "' WHERE path_ID = '" . $path_ID . "';";
+    /*
+     *  Add SQL queries of updating data in path_general table
+     **/
+    //prevent SQL injection of path_general
+    $path_general_data = db_prevent_SQLInjection($db_conn,$path_general_data);
+    $update_pathGenenal_qry = "UPDATE path_general SET path_name = '" . $path_general_data[0][0] . "', path_length ='" . $path_general_data[0][1] . "', description = '" . $path_general_data[0][2] . "', note = '" . $path_general_data[0][3] . "' WHERE path_ID = '" . $path_ID . "';";
     array_push($qrys_Arr, $update_pathGenenal_qry);
 
-    //SQL queries of re-inserting the end point and mid point data
-    //endPoint
+    /*
+     * Add SQL queries of re-inserting the end point
+     * */
+    //prevent SQL injection of path_endPoints
+    $path_endPoints_data = db_prevent_SQLInjection($db_conn,$path_endPoints_data);
     foreach ($path_endPoints_data as $lineArr) {
         $insert_endPoints_qry = "INSERT INTO path_endPoints(path_ID,dist_from_start,grd_height,atn_height) VALUES ('" . $path_ID . "', '" . $lineArr[0] . "', '" . $lineArr[1] . "', '" . $lineArr[2] . "');";
         array_push($qrys_Arr, $insert_endPoints_qry);
     }
 
-    //midPoint
-    foreach ($path_midPoints_data as $lineArr) {
+    /*
+     * Add SQL queries of re-inserting the mid point
+     * */
+    //prevent SQL injection of path_midPoints
+    $path_midPoints_data = db_prevent_SQLInjection($db_conn,$path_midPoints_data);
+    foreach ($path_midPoints_data as $lineArr) {  
         $insert_midPoints_qry = "INSERT INTO path_midPoints(path_ID,dist_from_start,grd_height,trn_type,obstr_height,obstr_type) VALUES('" . $path_ID . "', '" . $lineArr[0] . "', '" . $lineArr[1] . "', '" . $lineArr[2] . "', '" . $lineArr[3] . "', '" . $lineArr[4] . "');";
         array_push($qrys_Arr, $insert_midPoints_qry);
     }
 
-    //begin to reset the data
+    //Begin to reset the data
     if (db_trans_exec($db_conn, $qrys_Arr)) {
         echo '{ "code": "200" ,"data":{"msg":"Success to reset ' . $pathName . ' data"}}';
     } else {
         echo '{ "code": "400" ,"data":{"msg":"Fail to reset ' . $pathName . ' data"}}';
     }
-
     disconnect_db($db_conn);
 } else {
     echo '{ "code": "404" ,"data":{"msg":"The '.$pathName.' file is not uploaded"}}';
 }
-
 ?>

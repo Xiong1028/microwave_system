@@ -9,7 +9,7 @@ require_once("../../common/templates/header.php");
 require_once("../../common/utilities/dbHandler.php");
 ?>
 <div class="container" id="resetContainer">
-    <h2>Reset Microwave Path Data</h2>
+    <h2>Reset Microwave Data</h2>
     <p class="text-danger">
         <i class="fa fa-warning" aria-hidden="true" style="margin-right: 5px"></i>
         Warning: Microwave Data will be overridden and restored to original status.
@@ -32,7 +32,7 @@ require_once("../../common/utilities/dbHandler.php");
         </select>
         <div>
             <input id="reset" type="submit" name="reset" value="reset" class="btn btn-outline-secondary"
-                   style="margin-top: 30px"/>
+                   style="margin-top: 20px"/>
         </div>
     </form>
 
