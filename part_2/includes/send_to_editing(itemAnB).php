@@ -6,6 +6,18 @@
 **/
 require_once("../../common/templates/header.php");
 
+//ITEM D - EDITING ENDPOINT
+ include_once("edit_endpointModal.php");
+
+ // EDITING MIDPOINT
+ include_once("edit_midPointModal.php");
+
+ //EDITING GENERAL PATH
+ include_once("edit_generalPathModal.php");
+
+
+
+
 $db_conn = new mysqli('localhost', 'lamp2user', 'Test123!', 'microwave_path_data');
 if ($db_conn->connect_errno){
     die("Could not connect to database server \n Error: ".$db_conn->connect_errno ."\n Report: ".$db_conn->connect_error."\n");
@@ -46,33 +58,6 @@ $arrlength=count($paths);
     
 </form>
 <div id="output"></div>
-
-<div id="myModal_GeneralPath" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      CODE TO EDIT GENERAL PATH GOES HERE
-
-    </div>
-  </div>
-</div>
-
-<div id="myModal_MidPoint" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      CODE TO EDIT MIDPOINT( PART E) GOES HERE
-
-    </div>
-  </div>
-</div>
-
-<!--ITEM D - EDITING ENDPOINT -->
-<div id="myModal_EndPoint" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      ...
-    </div>
-  </div>
-</div>
 
 </div>
 
