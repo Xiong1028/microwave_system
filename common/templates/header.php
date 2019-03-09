@@ -14,6 +14,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
           integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <script src="/lamp2project_group2/common/js/jquery-3.3.1.min.js"></script>
     <title>LAMP2_Project2_Group2</title>
@@ -38,6 +42,12 @@
                 <a class="nav-link" href="/lamp2project_group2/part_1/includes/display_data.php"> <i class="fa fa-table" aria-hidden="true" style="margin-right: 5px"></i>Display
                     Data</a>
             </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/lamp2project_group2/part_2/includes/send_to_editing(itemAnB).php"> <i class="fa fa-table" aria-hidden="true" style="margin-right: 5px"></i>Edit
+                    Data</a>
+            </li>
+
             <li class="nav-item">
                 <a class="nav-link"
                    href="/lamp2project_group2/part_1/includes/resetData.php"><i
