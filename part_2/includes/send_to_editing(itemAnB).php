@@ -63,6 +63,9 @@ $arrlength=count($paths);
 
 
 <script>
+//global being initiated so it doesnt get undefined
+var data = {};
+
 $(document).ready(function() {
 
     $("#formSelectPath").submit(function(event) {
@@ -73,7 +76,12 @@ $(document).ready(function() {
     });
 
     var onPathSelected = function(response) {
-        var pd = response.pathData;
+        data = response;
+        displaydata(data);
+    }
+
+    function displaydata(data){
+        var pd = data.pathData;
         // First table
         var table = "<h4>Path_General</h4><table class='table table-striped table-hover'><tr><th>Path Name</th><th>Path length</th><th>Description</th><th>Note</th><th>Select Path</th></tr>";
         
@@ -81,19 +89,19 @@ $(document).ready(function() {
         table+="</table><br><br>";
 
          //Second Table
-        var td = response.endpoints;
+        var td = data.endpoints;
         table += "<h4>Path_EndPoints</h4><table class='table table-striped table-hover'><tr><th>Distance from start</th><th>Ground Height</th><th>Atn Height</th><th>Select Path</th></tr>";
-        for (var j = 0; j < response.endpoints.length; j++) {
+        for (var j = 0; j < td.length; j++) {
             
             table+="<tr><td>"+td[j].distance+"</td><td>"+td[j].groundHeight+"</td><td>"+td[j].atnHeight+"</td><td><a><i class='fas fa-pencil-alt' onclick='openEndPointPath();'></i></a></td></tr>";
         }
         table+="</table><br><br>"; 
 
         //Third Table
-        var sd = response.midpoints;
+        var sd = data.midpoints;
         console.log(sd);
         table += "<h4>Path_MidPoints</h4><table class='table table-striped table-hover'><tr><th>Distance from start</th><th>Ground Height</th><th>Terrain Type</th><th>Obstruction Height</th><th>Obstruction Type</th><th>Select Path</th></tr>";
-        for (var i = 0; i < response.midpoints.length; i++) {
+        for (var i = 0; i < sd.length; i++) {
             table+="<tr><td>"+sd[i].distance + "</td><td>" + sd[i].groundHeight + "</td><td>" + sd[i].trnType 
             + "</td><td>" + sd[i].obstrHeight +"</td><td>"+sd[i].obstrType+"</td><td><a><i class='fas fa-pencil-alt' onclick='openMidPointPath();'></i></a></td></tr>";
         }

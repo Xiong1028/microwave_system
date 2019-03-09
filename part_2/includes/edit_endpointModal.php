@@ -57,6 +57,13 @@
 </div>
 </div>
 
+<script>
+function fillFormEndPoint(){
+
+
+}
+</script>
+
 <!-- CREATE TABLE `path_endPoints`
 (
 `path_endpt_ID` int(11) not null auto_increment,
