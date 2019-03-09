@@ -18,29 +18,24 @@
                     <form>
 
                         <div class="form-group">
-                            <label for="exampleInputPassword1">end point id</label>
-                            <input type="text" class="form-control" id="exampleInputPassword1" disabled>
+                            <label for="endpointid">end point id</label>
+                            <input type="text" class="form-control" id="endpointid" disabled>
                         </div>
 
                         <div class="form-group">
-                            <label for="exampleInputPassword1">path id</label>
-                            <input type="text" class="form-control" id="exampleInputPassword1" disabled>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">distance from start</label>
-                            <input type="text" class="form-control" id="exampleInputPassword1" disabled>
+                            <label for="diststart">distance from start</label>
+                            <input type="text" class="form-control" id="distance" disabled>
                         </div>
 
 
                         <div class="form-group">
-                            <label for="exampleInputPassword1">grd height</label>
-                            <input type="text" class="form-control" id="exampleInputPassword1">
+                            <label for="gheight">grd height</label>
+                            <input type="text" class="form-control" id="gheight">
                         </div>
 
                         <div class="form-group">
-                            <label for="exampleInputPassword1">atn height</label>
-                            <input type="text" class="form-control" id="exampleInputPassword1">
+                            <label for="aheight">atn height</label>
+                            <input type="text" class="form-control" id="aheight">
                         </div>
 
 
@@ -58,9 +53,11 @@
 </div>
 
 <script>
-function fillFormEndPoint(){
-
-
+function fillFormEndPoint(endpoint){
+  $('#endpointid').val(endpoint.endptID);
+  $('#distance').val(endpoint.distance);
+  $('#gheight').val(endpoint.groundHeight);
+  $('#aheight').val(endpoint.atnHeight);
 }
 </script>
 

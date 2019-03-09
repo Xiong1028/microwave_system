@@ -125,6 +125,7 @@ function openMidPointPath(){
 
 
 function openEndPointPath(){
+    fillFormEndPoint(data.endpoints[0]);
     $('#myModal_EndPoint').modal('toggle');
    
 }
