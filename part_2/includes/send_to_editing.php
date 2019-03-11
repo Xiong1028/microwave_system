@@ -125,7 +125,7 @@ $arrlength = count($paths);
 
         // MODAL THAT OPENS THE EDITNNG OPT
         function openGeneralPath() {
-//            fillFormGeneralPath(data.pathData);
+            fillFormGeneralPath(data.pathData);
             $('#myModal_GeneralPath').modal('toggle');
         }
 
