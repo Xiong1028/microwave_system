@@ -1,5 +1,3 @@
-<?php require_once("../../common/templates/header.php"); ?>
-
 <div id="myModal_EndPoint" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
     aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -23,18 +21,17 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="diststart">distance from start</label>
+                            <label for="distance">distance from start</label>
                             <input type="text" class="form-control" id="distance" disabled>
                         </div>
 
-
                         <div class="form-group">
-                            <label for="gheight">grd height</label>
+                            <label for="gheight">Ground height</label>
                             <input type="text" class="form-control" id="gheight">
                         </div>
 
                         <div class="form-group">
-                            <label for="aheight">atn height</label>
+                            <label for="aheight">Antenna height</label>
                             <input type="text" class="form-control" id="aheight">
                         </div>
 

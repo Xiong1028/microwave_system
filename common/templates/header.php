@@ -19,6 +19,7 @@
     integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/lamp2project_group2/common/css/main.css" rel="stylesheet">
     <script src="/lamp2project_group2/common/js/jquery-3.3.1.min.js"></script>
     <title>LAMP2_Project2_Group2</title>
 </head>
@@ -31,7 +32,7 @@
     </button>
     <div class="collapse navbar-collapse  offset-md-1" id="navbarNav">
         <ul class="navbar-nav">
-            <li class="nav-item ">
+            <li class="nav-item">
                 <a class="nav-link" href="/lamp2project_group2/"><i class="fa fa-home" style="margin-right: 5px"></i>Home</span></a>
             </li>
             <li class="nav-item ">
@@ -44,7 +45,7 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="/lamp2project_group2/part_2/includes/send_to_editing(itemAnB).php"> <i class="fa fa-table" aria-hidden="true" style="margin-right: 5px"></i>Edit
+                <a class="nav-link" href="/lamp2project_group2/part_2/includes/send_to_editing.php"> <i class="fa fa-edit" aria-hidden="true" style="margin-right: 5px"></i>Edit
                     Data</a>
             </li>
 
