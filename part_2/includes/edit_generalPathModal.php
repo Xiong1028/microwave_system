@@ -60,3 +60,4 @@ function fillFormGeneralPath(pathData){
   $('#genPathInfoNote').val(pathData.note);
 }
 </script>
+
