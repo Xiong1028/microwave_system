@@ -26,23 +26,23 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="endgheight">Ground height</label>
-                            <input type="text" class="form-control" id="endgheight">
+                            <label for="midgheight">Ground height</label>
+                            <input type="text" class="form-control" id="midgheight">
                         </div>
 
                         <div class="form-group">
-                            <label for="endtrntype">Terrain Type</label>
-                            <input type="text" class="form-control" id="endtrntype">
+                            <label for="midtrntype">Terrain Type</label>
+                            <input type="text" class="form-control" id="midtrntype">
                         </div>
 
                         <div class="form-group">
-                            <label for="endobheight">Obstruction height</label>
-                            <input type="text" class="form-control" id="endobheight">
+                            <label for="midobheight">Obstruction height</label>
+                            <input type="text" class="form-control" id="midobheight">
                         </div>
 
                         <div class="form-group">
-                            <label for="endobtype">Obstruction type</label>
-                            <input type="text" class="form-control" id="endobtype">
+                            <label for="midobtype">Obstruction type</label>
+                            <input type="text" class="form-control" id="midobtype">
                         </div>
 
                         <div class="modal-footer">

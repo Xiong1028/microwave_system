@@ -98,10 +98,11 @@ $arrlength = count($paths);
 
                 //Third Table
                 var sd = data.midpoints;
+
                 table += "<h4>Path_MidPoints</h4><table class='table table-striped table-hover'><tr><th>Distance from start</th><th>Ground Height</th><th>Terrain Type</th><th>Obstruction Height</th><th>Obstruction Type</th><th>Select Path</th></tr>";
                 for (var i = 0; i < sd.length; i++) {
                     table += "<tr><td>" + sd[i].distance + "</td><td>" + sd[i].groundHeight + "</td><td>" + sd[i].trnType
-                        + "</td><td>" + sd[i].obstrHeight + "</td><td>" + sd[i].obstrType + "</td><td><a><i class='fas fa-pencil-alt' data-toggle='modal' data-target='#myModal_MidPoint' data-mid="+JSON.stringify(sd[i])+"></i></a></td></tr>";
+                        + "</td><td>" + sd[i].obstrHeight + "</td><td>" + sd[i].obstrType + "</td><td><a><i class='fas fa-pencil-alt' data-toggle='modal' data-target='#myModal_MidPoint' data-mid="+JSON.stringify(sd[i]).replace(' ','')+"></i></a></td></tr>";
                 }
                 table += "</table>";
 
@@ -110,11 +111,13 @@ $arrlength = count($paths);
 
             $('#myModal_MidPoint').on('show.bs.modal',function(e){
                 var linedata = $(e.relatedTarget).data('mid');
-                if(typeof linedata ==="string"){
-                  console.log(linedata);
-                }
                 console.log(linedata);
-                console.log(linedata['distance']);
+                $('#midpointid').val(linedata['midpointID']);
+                $("#middiststart").val(linedata['distance']);
+                $("#midgheight").val(linedata['groundHeight']);
+                $("#midtrntype").val(linedata['trnType']);
+                $("#midobheight").val(linedata['obstrHeight']);
+                $("#midobtype").val(linedata['obstrType']);
             });
         });
 
