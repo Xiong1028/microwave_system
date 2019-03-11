@@ -25,12 +25,12 @@
         </div>
 
         <div class="form-group">
-            <label for="genPathInfoLength">path length</label>
+            <label for="genPathInfoLength">path Length</label>
             <input type="text" class="form-control" id="genPathInfoLength" disabled>
         </div>
 
         <div class="form-group">
-            <label for="genPathInfoDesc">description</label>
+            <label for="genPathInfoDesc">Description</label>
             <input type="text" class="form-control" id="genPathInfoDesc" disabled>
         </div>
 
