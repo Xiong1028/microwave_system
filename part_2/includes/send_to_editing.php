@@ -148,4 +148,5 @@ $arrlength = count($paths);
 
 <?php
 require_once("../../common/templates/footer.php");
+
 ?>
