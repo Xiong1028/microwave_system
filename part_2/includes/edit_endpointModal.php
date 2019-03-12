@@ -75,7 +75,7 @@ function prepareUpdateEndpointForm () {
         $.post("./ajax/endpointupdateAjax.php", $(this).serialize(),
             onEndPointUpdateSuccess
         )  .fail(function(response) {
-        alert( JSON.stringify(response));
+        alert( response.responseText);
     });
         event.preventDefault();
     });

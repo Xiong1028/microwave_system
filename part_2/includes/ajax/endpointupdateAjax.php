@@ -34,18 +34,31 @@ function isValid($messages_for_validation){
 	if (empty($gheight)) {
         $gheight_error_message = "A ground height must be provided. ";	
         $AllErrorMessages =  $gheight_error_message;
-	}
+	}else if (!filter_var($gheight, FILTER_VALIDATE_FLOAT)){
+        $gheight_error_message = "g height has to be a number. ";	
+        $AllErrorMessages =  $gheight_error_message;
+    }else if (!preg_match("/^\d{1,2}(\.\d{1,4})?$/", $gheight)){
+        $gheight_error_message = "out of pattern. ";	
+        $AllErrorMessages =  $gheight_error_message;
+    }
+
 
 	if (empty($aheight)){
         $aheight_error_message = "A aheight must be provided. ";
         $AllErrorMessages = $AllErrorMessages.$aheight_error_message;
 	
+    }else if (!filter_var($aheight, FILTER_VALIDATE_FLOAT)){
+        $aheight_error_message = "A aheight has to a number. ";
+        $AllErrorMessages = $AllErrorMessages.$aheight_error_message;
+    }else if (!preg_match("/^\d{1,2}(\.\d{1,4})?$/", $aheight)){
+        $aheight_error_message = "out of pattern. ";	
+        $AllErrorMessages =  $aheight_error_message;
     }
+
 
     if (empty($endpointid)){
         $endpointid_error_message = "No ID found. ";
         $AllErrorMessages = $AllErrorMessages.$endpointid_error_message;
-	
     }
     
     if(isValid(array($gheight_error_message,$aheight_error_message, $endpointid_error_message))) {
