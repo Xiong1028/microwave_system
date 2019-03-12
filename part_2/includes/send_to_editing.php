@@ -66,6 +66,8 @@ $arrlength = count($paths);
         var data = {};
 
         $(document).ready(function () {
+            
+            prepareUpdateEndpointForm();
 
             $("#formSelectPath").submit(function (event) {
                 $.post("../../part_1/includes/selectPath_ajax.php", $(this).serialize(),
