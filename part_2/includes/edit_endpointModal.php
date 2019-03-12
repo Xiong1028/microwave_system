@@ -44,7 +44,7 @@
 
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-primary" name="change">Save changes</button>
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal" name="cancel">Cancel</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="cancel();">Cancel</button>
                         </div>
                 </div>
 
@@ -93,6 +93,12 @@ var onEndPointUpdateSuccess = function (response) {
     $('#myModal_EndPoint').modal('toggle');
     alert( response );
 
+}
+
+function cancel(){
+     //close modal
+    alert( "The operation is being cancelled" );
+    $('#myModal_EndPoint').modal('toggle');
 }
 </script>
 
