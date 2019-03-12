@@ -15,7 +15,7 @@ $AllErrorMessages = "";
 
 if(isset($_POST["gheight"])) $gheight = $_POST["gheight"];
 if(isset($_POST["aheight"])) $aheight = $_POST["aheight"];
-if(isset($_POST["endpointid"])) $endpointid= $_POST["endpointid"];
+if(isset($_POST["id_hidden"])) $endpointid= $_POST["id_hidden"];
 
 
 function isValid($messages_for_validation){
@@ -43,12 +43,12 @@ function isValid($messages_for_validation){
     }
 
     if (empty($endpointid)){
-        $endpointid_error_message = "Where is the ID girlll. ";
+        $endpointid_error_message = "No ID found. ";
         $AllErrorMessages = $AllErrorMessages.$endpointid_error_message;
 	
     }
     
-    if(isValid(array($gheight_error_message,$aheight_error_message))) {
+    if(isValid(array($gheight_error_message,$aheight_error_message, $endpointid_error_message))) {
 
 		$WhatWasReturned = changeEndPoint($db_conn,$gheight,$aheight, $endpointid);
 		if($WhatWasReturned =="success"){
@@ -75,7 +75,7 @@ function changeEndPoint($db_conn, $gheight,$aheight, $endpointid){
 		return "success";
 	}
 }
-$conn->close();
+$db_conn->close();
 
 
 ?>

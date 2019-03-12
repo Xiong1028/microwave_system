@@ -17,8 +17,13 @@
                     <form method="POST" id="FormUpdateEndPoint">
 
                         <div class="form-group">
+                            <!-- <label for="id_hidden">end point id</label> -->
+                            <input type="hidden" class="form-control" id="id_hidden" name="id_hidden">
+                        </div>
+
+                        <div class="form-group">
                             <label for="endpointid">end point id</label>
-                            <input type="text" class="form-control" id="endpointid" name="endpointid">
+                            <input type="text" class="form-control" id="endpointid" name="endpointid" disabled>
                         </div>
 
                         <div class="form-group">
@@ -53,6 +58,7 @@
 <!-- java script portion to fill the field sent via ajax-->
 <script>
 function fillFormEndPoint(endpoint){
+  $('#id_hidden').val(endpoint.endptID);
   $('#endpointid').val(endpoint.endptID);
   $('#distance').val(endpoint.distance);
   $('#gheight').val(endpoint.groundHeight);
@@ -65,7 +71,7 @@ function fillFormEndPoint(endpoint){
 function prepareUpdateEndpointForm () {
 
     $("#FormUpdateEndPoint").submit(function (event) {
-        console.log("ta passando aqui?");
+        // console.log("ta passando aqui?");
         $.post("./ajax/endpointupdateAjax.php", $(this).serialize(),
             onEndPointUpdateSuccess
         )  .fail(function(response) {
@@ -76,7 +82,17 @@ function prepareUpdateEndpointForm () {
 }
 
 var onEndPointUpdateSuccess = function (response) {
+    //Update screen with the new information
+    data.endpoints[0].groundHeight =  $('#gheight').val();
+    data.endpoints[0].atnHeight =  $('#aheight').val();
+
+    //display the form updated(behind)
+    displaydata(data);
+   
+    //close modal
+    $('#myModal_EndPoint').modal('toggle');
     alert( response );
+
 }
 </script>
 
