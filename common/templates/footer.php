@@ -10,7 +10,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" ></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
 <script src="/lamp2project_group2/part_1/js/ResetAjax.js"></script>
-<script src="/lamp2project_group2/part_2/js/edit_midPoint.js"></script>
 </body>
 </html>
 

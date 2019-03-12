@@ -66,11 +66,13 @@ $arrlength = count($paths);
         var data = {};
 
         $(document).ready(function () {
+            
+            prepareUpdateEndpointForm();
 
             $("#formSelectPath").submit(function (event) {
                 $.post("../../part_1/includes/selectPath_ajax.php", $(this).serialize(),
                     onPathSelected);
-                console.log("ba");
+                // console.log("ba");
                 event.preventDefault();
             });
 
@@ -79,7 +81,39 @@ $arrlength = count($paths);
                 displaydata(data);
             }
 
-            function displaydata(data) {
+
+            $('#myModal_MidPoint').on('show.bs.modal',function(e){
+                var linedata = $(e.relatedTarget).data('mid');
+                // console.log(linedata);
+                $('#midpointid').val(linedata['midpointID']);
+                $("#middiststart").val(linedata['distance']);
+                $("#midgheight").val(linedata['groundHeight']);
+                $("#midtrntype").val(linedata['trnType']);
+                $("#midobheight").val(linedata['obstrHeight']);
+                $("#midobtype").val(linedata['obstrType']);
+            });
+        });
+
+
+
+        // MODAL THAT OPENS THE EDITNNG OPT
+        function openGeneralPath() {
+            fillFormGeneralPath(data.pathData);
+            $('#myModal_GeneralPath').modal('toggle');
+        }
+
+        function openMidPointPath() {
+
+
+        }
+
+        function openEndPointPath() {
+            fillFormEndPoint(data.endpoints[0]);
+            $('#myModal_EndPoint').modal('toggle');
+        }
+
+
+        function displaydata(data) {
                 var pd = data.pathData;
                 // First table
                 var table = "<h4>Path_General</h4><table class='table table-striped table-hover'><tr><th>Path Name</th><th>Path length</th><th>Description</th><th>Note</th><th>Select Path</th></tr>";
@@ -109,38 +143,10 @@ $arrlength = count($paths);
                 $("#output").html(table);
             };
 
-            $('#myModal_MidPoint').on('show.bs.modal',function(e){
-                var linedata = $(e.relatedTarget).data('mid');
-                console.log(linedata);
-                $('#midpointid').val(linedata['midpointID']);
-                $("#middiststart").val(linedata['distance']);
-                $("#midgheight").val(linedata['groundHeight']);
-                $("#midtrntype").val(linedata['trnType']);
-                $("#midobheight").val(linedata['obstrHeight']);
-                $("#midobtype").val(linedata['obstrType']);
-            });
-        });
-
-
-
-        // MODAL THAT OPENS THE EDITNNG OPT
-        function openGeneralPath() {
-            $('#myModal_GeneralPath').modal('toggle');
-        }
-
-        function openMidPointPath() {
-
-
-        }
-
-        function openEndPointPath() {
-            fillFormEndPoint(data.endpoints[0]);
-            $('#myModal_EndPoint').modal('toggle');
-        }
-
     </script>
 
 
 <?php
 require_once("../../common/templates/footer.php");
+
 ?>
