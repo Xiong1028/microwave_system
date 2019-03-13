@@ -20,7 +20,8 @@ $(document).ready(function () {
 
     const onNewPost = function(response){
         //display the response msg
-        console.log(response);
+        const genData = JSON.parse(response.data);
+        displaydata(genData);
+        $('#myModal_GeneralPath').modal('toggle');
     }
-
 });

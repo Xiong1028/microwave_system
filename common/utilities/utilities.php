@@ -89,7 +89,7 @@ function valid_edit_gen($postGen)
 function valid_edit_mid($postMid)
 {
 	$ter_allowedType_arrs = array("Grassland", "Rough Grassland", "Smooth rock", "Bare soil", "Paved Surface", "Lake", "Ocean", "Rough rock");
-	$obstr_allowedType_arrs = array("None", "Trees", "Brush", "Building", "Webbed Towers", "Solid Towers", "Power Cables");
+	$obstr_allowedType_arrs = array("None", "Trees", "Bush", "Building", "Webbed Towers", "Solid Towers", "Power Cables");
 
 	$errArr = array();
 

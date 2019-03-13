@@ -13,7 +13,8 @@ if ($db_conn->connect_errno){
 }
 
 $selected_val = $_POST['selectedPath'];
-$_SESSION['selectedPath'] = $selected_val;
+
+$_SESSION['selectedPath']= $_POST['selectedPath'];
 
 
 $qry = "select path_ID,path_name,path_length,description,note from path_general where path_ID=".$selected_val." ;";

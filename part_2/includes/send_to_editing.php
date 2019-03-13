@@ -5,8 +5,6 @@
  *  Date:   March 09, 2019
 **/
 
-
-
 require_once("../../common/templates/header.php");
 
 //ITEM D - EDITING ENDPOINT
