@@ -11,13 +11,7 @@ $(document).ready(function () {
     })
 
     var onNewPost = function (response) {
-        if (response.code == 200) {
-            $('#msg').html(response.data.msg);
-        } else if (response.code == 400) {
-            $('#msg').html(response.data.msg);
-        } else if (response.code = 404) {
-            $('#msg').html(response.data.msg);
-        }
+        $('#msg').html(response.data.msg);
     }
 
 });

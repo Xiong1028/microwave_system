@@ -39,7 +39,7 @@ class ValidateCSV
                     if (!isset($this->path_general_arr[0][$i])) {
                         $this->errors_arr['path01']['path_length'] = "The path_length must exist";
                     }else if(empty(trim($this->path_general_arr[0][$i])) && trim($this->path_general_arr[0][$i]) !="0" ){
-                        $this->errors_arr['path01']['path_name']= "The path_name is empty";
+                        $this->errors_arr['path01']['path_length']= "The path_length is empty";
                     }else if ($this->path_general_arr[0][$i] < 1 || $this->path_general_arr[0][$i] > 100) {
                         $this->errors_arr['path01']['path_length'] = "The frequency of path must be between 1 and 100";
                     }
@@ -48,7 +48,7 @@ class ValidateCSV
                     if(!isset($this->path_general_arr[0][$i])) {
                         $this->errors_arr['path01']['description'] = "The description must exist";
                     }else if(empty(trim($this->path_general_arr[0][$i])) && trim($this->path_general_arr[0][$i]) !="0" ){
-                        $this->errors_arr['path01']['path_name']= "The path_name is empty";
+                        $this->errors_arr['path01']['description']= "The description is empty";
                     }else if (strlen($this->path_general_arr[0][$i]) > 255) {
                         $this->errors_arr['path01']['description'] = "the length of description must be less than 255";
                     }
@@ -149,9 +149,9 @@ class ValidateCSV
                         break;
                     case 4:
                         if(!isset($this->path_midPoints_arr[$i][$j])){
-                            $this->errors_arr['path03'][$i]['obstr_type'] ='The obstruction height must exist';
+                            $this->errors_arr['path03'][$i]['obstr_type'] ='The obstruction type must exist';
                         }else if(empty($this->path_midPoints_arr[$i][$j]) && trim($this->path_midPoints_arr[$i][$j]) != '0') {
-                            $this->errors_arr['path03'][$i]['obstr_type'] = 'The obstruction height cannot be empty';
+                            $this->errors_arr['path03'][$i]['obstr_type'] = 'The obstruction type cannot be empty';
                         } elseif (!in_array($this->path_midPoints_arr[$i][$j], ValidateCSV::$obstr_allowedType_arrs, false)) {
                             $this->errors_arr['path03'][$i]['obstr_type'] = 'The obstruction type is invalid';
                         }

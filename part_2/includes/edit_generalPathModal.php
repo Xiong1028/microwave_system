@@ -12,37 +12,36 @@
 
       <div class="modal-body">
         <div class="container">
-          <form>
+          <form method="post" id="editGenPoint">
             <div class="form-group">
               <label for="genPathInfoid">Path ID</label>
-              <input type="text" class="form-control" id="genPathInfoid" disabled>
+              <input type="text" class="form-control" id="genPathInfoid" readonly="true" name="genPathInfoid">
             </div>
 
             <div class="form-group">
               <label for="genPathInfoName">Path Name</label>
-              <input type="text" class="form-control" id="genPathInfoName" disabled>
+              <input type="text" class="form-control" id="genPathInfoName" readonly="true" name="genPathInfoName">
             </div>
 
             <div class="form-group">
                 <label for="genPathInfoLength">Path Length</label>
-                <input type="text" class="form-control" id="genPathInfoLen">
+                <input type="text" class="form-control" id="genPathInfoLen" name="genPathInfoLen">
             </div>
 
             <div class="form-group">
                 <label for="genPathInfoDesc">Description</label>
-                <input type="text" class="form-control" id="genPathInfoDesc">
+                <input type="text" class="form-control" id="genPathInfoDesc" name="genPathInfoDesc">
             </div>
 
             <div class="form-group">
                 <label for="genPathInfoNote">Note</label>
-                <input type="text" class="form-control" id="genPathInfoNote">
+                <input type="text" class="form-control" id="genPathInfoNote" name="genPathInfoNote">
             </div>
 
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="submit" class="btn btn-primary">Save changes</button>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
             </div>
-
           </form>
         </div>       
       </div>

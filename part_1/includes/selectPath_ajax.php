@@ -5,12 +5,16 @@
  *  Date:   Feb 12, 2019
 **/
 
+session_start();
+
 $db_conn = new mysqli('localhost', 'lamp2user', 'Test123!', 'microwave_path_data');
 if ($db_conn->connect_errno){
     die("Could not connect to database server \n Error: ".$db_conn->connect_errno ."\n Report: ".$db_conn->connect_error."\n");
 }
 
 $selected_val = $_POST['selectedPath'];
+$_SESSION['selectedPath'] = $selected_val;
+
 
 $qry = "select path_ID,path_name,path_length,description,note from path_general where path_ID=".$selected_val." ;";
 $rs = $db_conn->query($qry);

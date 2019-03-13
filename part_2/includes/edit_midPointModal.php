@@ -14,39 +14,40 @@
 
                 <div class="container">
 
-                    <form>
+                    <form method="post" id="editMidPoint">
                         <div class="form-group">
                             <label for="midpointid">Midpoint id</label>
-                            <input type="text" class="form-control" id="midpointid" readonly="true">
+                            <input type="text" class="form-control" id="midpointid" readonly="true" name="midpointid">
                         </div>
 
                         <div class="form-group">
                             <label for="middiststart">Distance from start</label>
-                            <input type="text" class="form-control" id="middiststart" readonly="true">
+                            <input type="text" class="form-control" id="middiststart" readonly="true"
+                                   name="middiststart">
                         </div>
 
                         <div class="form-group">
                             <label for="midgheight">Ground height</label>
-                            <input type="text" class="form-control" id="midgheight">
+                            <input type="text" class="form-control" id="midgheight" name="midgheight">
                         </div>
 
                         <div class="form-group">
                             <label for="midtrntype">Terrain Type</label>
-                            <input type="text" class="form-control" id="midtrntype">
+                            <input type="text" class="form-control" id="midtrntype" name="midtrntype">
                         </div>
 
                         <div class="form-group">
                             <label for="midobheight">Obstruction height</label>
-                            <input type="text" class="form-control" id="midobheight">
+                            <input type="text" class="form-control" id="midobheight" name="midobheight">
                         </div>
 
                         <div class="form-group">
                             <label for="midobtype">Obstruction type</label>
-                            <input type="text" class="form-control" id="midobtype">
+                            <input type="text" class="form-control" id="midobtype" name="midobtype">
                         </div>
 
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-primary">Save changes</button>
+                            <button type="submit" class="btn btn-primary">Save changes</button>
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                         </div>
                 </div>

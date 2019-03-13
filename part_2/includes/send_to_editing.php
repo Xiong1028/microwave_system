@@ -4,6 +4,9 @@
  *  Authors: Hui, Debora, Jihye, Xiong, Jane
  *  Date:   March 09, 2019
 **/
+
+
+
 require_once("../../common/templates/header.php");
 
 //ITEM D - EDITING ENDPOINT
@@ -72,7 +75,6 @@ $arrlength = count($paths);
             $("#formSelectPath").submit(function (event) {
                 $.post("../../part_1/includes/selectPath_ajax.php", $(this).serialize(),
                     onPathSelected);
-                // console.log("ba");
                 event.preventDefault();
             });
 
@@ -88,7 +90,7 @@ $arrlength = count($paths);
                 $('#midpointid').val(linedata['midpointID']);
                 $("#middiststart").val(linedata['distance']);
                 $("#midgheight").val(linedata['groundHeight']);
-                $("#midtrntype").val(linedata['trnType']);
+                $("#midtrntype").val(linedata['trnType'].replace('_',' '));
                 $("#midobheight").val(linedata['obstrHeight']);
                 $("#midobtype").val(linedata['obstrType']);
             });
@@ -102,10 +104,7 @@ $arrlength = count($paths);
             $('#myModal_GeneralPath').modal('toggle');
         }
 
-        function openMidPointPath() {
-
-
-        }
+        function openMidPointPath() {};
 
         function openEndPointPath() {
             fillFormEndPoint(data.endpoints[0]);
@@ -136,7 +135,7 @@ $arrlength = count($paths);
                 table += "<h4>Path_MidPoints</h4><table class='table table-striped table-hover'><tr><th>Distance from start</th><th>Ground Height</th><th>Terrain Type</th><th>Obstruction Height</th><th>Obstruction Type</th><th>Select Path</th></tr>";
                 for (var i = 0; i < sd.length; i++) {
                     table += "<tr><td>" + sd[i].distance + "</td><td>" + sd[i].groundHeight + "</td><td>" + sd[i].trnType
-                        + "</td><td>" + sd[i].obstrHeight + "</td><td>" + sd[i].obstrType + "</td><td><a><i class='fas fa-pencil-alt' data-toggle='modal' data-target='#myModal_MidPoint' data-mid="+JSON.stringify(sd[i]).replace(' ','')+"></i></a></td></tr>";
+                        + "</td><td>" + sd[i].obstrHeight + "</td><td>" + sd[i].obstrType + "</td><td><a><i class='fas fa-pencil-alt' data-toggle='modal' data-target='#myModal_MidPoint' data-mid="+JSON.stringify(sd[i]).replace(' ','_')+"></i></a></td></tr>";
                 }
                 table += "</table>";
 
