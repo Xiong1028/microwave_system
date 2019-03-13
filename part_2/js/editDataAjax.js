@@ -9,12 +9,12 @@
 
 $(document).ready(function () {
     $("#editGenPoint").submit(function(e){
-        $.post("../includes/ajax/updateEditData.php", $(this).serialize(), onNewPost());
+        $.post("../includes/ajax/updateEditData.php", $(this).serialize(), onNewPost);
         e.preventDefault();
     });
 
     $("#editMidPoint").submit(function(e){
-        $.post("../includes/ajax/updateEditData.php", $(this).serialize(), onNewPost());
+        $.post("../includes/ajax/updateEditData.php", $(this).serialize(), onNewPost);
         e.preventDefault();
     });
 
