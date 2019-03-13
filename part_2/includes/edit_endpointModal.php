@@ -58,48 +58,58 @@
 
 <!-- java script portion to fill the field sent via ajax-->
 <script>
-    function fillFormEndPoint(endpoint) {
-        $('#id_hidden').val(endpoint.endptID);
-        $('#endpointid').val(endpoint.endptID);
-        $('#distance').val(endpoint.distance);
-        $('#gheight').val(endpoint.groundHeight);
-        $('#aheight').val(endpoint.atnHeight);
-    }
+
+function fillFormEndPoint(endpoint){
+  $('#id_hidden').val(endpoint.endptID);
+  $('#endpointid').val(endpoint.endptID);
+  $('#distance').val(endpoint.distance);
+  $('#gheight').val(endpoint.groundHeight);
+  $('#aheight').val(endpoint.atnHeight);
+}
 
 
-    // Ajax communication back to the server
-    function prepareUpdateEndpointForm() {
 
-        $("#FormUpdateEndPoint").submit(function (event) {
-            // console.log("ta passando aqui?");
-            $.post("./ajax/endpointupdateAjax.php", $(this).serialize(),
-                onEndPointUpdateSuccess
-            ).fail(function (response) {
-                alert(response.responseText);
-            });
-            event.preventDefault();
-        });
-    }
+// Ajax communication back to the server
+function prepareUpdateEndpointForm () {
 
-    var onEndPointUpdateSuccess = function (response) {
-        //Update screen with the new information
-        data.endpoints[0].groundHeight = $('#gheight').val();
-        data.endpoints[0].atnHeight = $('#aheight').val();
+    $("#FormUpdateEndPoint").submit(function (event) {
+        // console.log("ta passando aqui?");
+        $.post("./ajax/endpointupdateAjax.php", $(this).serialize(),
+            onEndPointUpdateSuccess
+        )  .fail(function(response) {
+        alert( response.responseText);
+    });
+        event.preventDefault();
+    });
+}
 
-        //display the form updated(behind)
-        displaydata(data);
+var onEndPointUpdateSuccess = function (response) {
+    // Array from javascript
+    var endPointWithIDToUpdate = data.endpoints.find(function (el){
+        return el.endptID == $('#id_hidden').val();
+    });
 
-        //close modal
-        $('#myModal_EndPoint').modal('toggle');
-        alert(response);
+    //Update screen with the new information
+    endPointWithIDToUpdate.groundHeight =  $('#gheight').val();
+    endPointWithIDToUpdate.atnHeight =  $('#aheight').val();
 
-    }
+    // data.endpoints[0].groundHeight =  $('#gheight').val();
+    // data.endpoints[0].atnHeight =  $('#aheight').val();
 
-    function cancel() {
-        //close modal
-        alert("The operation is being cancelled");
-        $('#myModal_EndPoint').modal('toggle');
-    }
+    //display the form updated(behind)
+    displaydata(data);
+   
+    //close modal
+    $('#myModal_EndPoint').modal('toggle');
+    alert( response );
+
+}
+
+function cancel(){
+     //close modal
+    alert( "The operation is being cancelled" );
+    $('#myModal_EndPoint').modal('toggle');
+}
 </script>
 
 <!-- CREATE TABLE `path_endPoints`

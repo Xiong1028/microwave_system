@@ -104,8 +104,8 @@ $arrlength = count($paths);
 
         function openMidPointPath() {};
 
-        function openEndPointPath() {
-            fillFormEndPoint(data.endpoints[0]);
+        function openEndPointPath(index) {
+            fillFormEndPoint(data.endpoints[index]);
             $('#myModal_EndPoint').modal('toggle');
         }
 
@@ -123,7 +123,7 @@ $arrlength = count($paths);
                 table += "<h4>Path_EndPoints</h4><table class='table table-striped table-hover'><tr><th>Distance from start</th><th>Ground Height</th><th>Atn Height</th><th>Select Path</th></tr>";
                 for (var j = 0; j < td.length; j++) {
 
-                    table += "<tr><td>" + td[j].distance + "</td><td>" + td[j].groundHeight + "</td><td>" + td[j].atnHeight + "</td><td><a><i class='fas fa-pencil-alt' onclick='openEndPointPath();'></i></a></td></tr>";
+                    table += "<tr><td>" + td[j].distance + "</td><td>" + td[j].groundHeight + "</td><td>" + td[j].atnHeight + "</td><td><a><i class='fas fa-pencil-alt' onclick='openEndPointPath("+j+");'></i></a></td></tr>";
                 }
                 table += "</table><br><br>";
 
