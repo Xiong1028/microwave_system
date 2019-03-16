@@ -35,7 +35,7 @@ function read_CSV($path)
  *  Purpose: A function to check if a file including pathName fields is uploaded
  *  Paramerte: @path  eg:the uploaded permanent location directory /lamp2project_group2/part_1/includes/uploads
  *             @pathName string eg 'path01'
- *  return: true  -> file is already existed
+ *  return: file > file is already existed
  *          false -> file is not existed
  *
  * */
@@ -78,7 +78,7 @@ function valid_edit_gen($postGen)
 		$errArr['genPathInfoLen'] = "The path_length must exist";
 	} else if (empty(trim($postGen['genPathInfoLen'])) && trim($postGen['genPathInfoLen']) != "0") {
 		$errArr['genPathInfoLen'] = "The path_length is empty";
-	} else if ($postGen['genPathInfoLen'] < 1 || $postGen['genPathInfoLen'] > 100) {
+	} else if ($postGen['genPathInfoLen'] < 1 || $postGen['genPathInfoLen'] > 99.99) {
 		$errArr['genPathInfoLen'] = "The path_length must be between 1 and 100";
 	} else if (!isset($postGen['genPathInfoDesc'])) {
 		$errArr['genPathInfoDesc'] = "The description must exist";
@@ -105,8 +105,8 @@ function valid_edit_mid($postMid)
 		$errArr['midgheight'] = "The Ground height of the midPoint must exist";
 	} else if (empty($postMid['midgheight']) && trim($postMid['midgheight']) != '0') {
 		$errArr['midgheight'] = 'The Ground height of the midPoint cannot be empty';
-	} else if ($postMid['midgheight'] < 0) {
-		$errArr['midgheight'] = 'The Ground height of the midPoint must be greater than 0';
+	} else if ($postMid['midgheight'] < 0  ||$postMid['midgheight']>99.99) {
+		$errArr['midgheight'] = 'The Ground height of the midPoint must between 0 and 100';
 	} else if (!isset($postMid['midtrntype'])) {
 		$errArr['midtrntype'] = "The terrain type must exist";
 	} else if (empty($postMid['midtrntype']) && trim($postMid['midtrntype']) != '0') {
@@ -118,8 +118,8 @@ function valid_edit_mid($postMid)
 		$errArr['midobheight'] = "The obstruction height of midPoint must exist";
 	} else if (empty($postMid['midobheight']) && trim($postMid['midobheight']) != '0') {
 		$errArr['midobheight'] = 'The obstruction height of midPoint cannot be empty';
-	} else if ($postMid['midobheight'] < 0) {
-		$errArr['midobheight'] = 'The obstruction height of midPoint must be greater than 0';
+	} else if ($postMid['midobheight'] < 0 || $postMid['midobheight']>99.99) {
+		$errArr['midobheight'] = 'The obstruction height of midPoint must be between 0 and 100';
 	} else if (!isset($postMid['midobtype'])) {
 		$errArr['midobtype'] = 'The obstruction type must exist';
 	} else if (empty($postMid['midobtype']) && trim($postMid['midobtype']) != '0') {

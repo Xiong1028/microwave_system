@@ -9,12 +9,14 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
+            <form method="post" id="editMidPoint">
+                <div class="modal-body">
+                    <div class="container">
 
-            <div class="modal-body">
+                        <div class="form-group">
+                            <input type="hidden" class="form-control" id="pathIdHidden" name="pathid">
+                        </div>
 
-                <div class="container">
-
-                    <form method="post" id="editMidPoint">
                         <div class="form-group">
                             <label for="midpointid">Midpoint id</label>
                             <input type="text" class="form-control" id="midpointid" readonly="true" name="midpointid">
@@ -45,14 +47,15 @@
                             <label for="midobtype">Obstruction type</label>
                             <input type="text" class="form-control" id="midobtype" name="midobtype">
                         </div>
+                        <div id="midModMsg" style="color: red;font-size: 120%"></div>
+                    </div>
 
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary">Save changes</button>
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                        </div>
                 </div>
-                </form>
-            </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
