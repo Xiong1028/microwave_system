@@ -44,10 +44,10 @@ $(document).ready(function () {
     }
 
     const onMidPost = function (response) {
-        console.log(response);
         if (response.status === "success") {
-            const midWithIDToUpdate = data.midpoints.find(function (el) {
-                return el.midpointID = $("#midpointid").val();
+            console.log($('#midpointid').val());
+            var midWithIDToUpdate = data.midpoints.find(function (el) {
+                return el.midpointID == $('#midpointid').val();
             })
 
             midWithIDToUpdate.groundHeight = $("#midgheight").val();
