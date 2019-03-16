@@ -165,4 +165,15 @@ function db_get_all_data($db_conn,$selected_val)
 	return json_encode($data);
 }
 
+//update the data in databases and give the response to the browser
+function updateDataAndReponse($db_conn, $qry)
+{
+	$db_conn->query($qry);
+
+	if ($db_conn->errno != 0) {
+		echo '{"status":"fail","data":[' . $db_conn->error . " query " . $qry . ']}';
+	} else {
+		echo '{ "status": "success" ,"data":"Success to modify the data"}';
+	}
+}
 ?>
