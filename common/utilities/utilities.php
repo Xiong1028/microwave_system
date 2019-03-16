@@ -47,11 +47,19 @@ function check_file_existed($path, $pathName)
 	while (($filename = readdir($handler)) !== false) {
 		if ($filename != "." && $filename != "..") {
 			if (strpos($filename, $pathName) !== false) {
-				return true;
+				return $filename;
 			}
 		}
 	}
 	return false;
+}
+
+//get the extension of the file
+function getExt4($filename)
+{
+	$arr = pathinfo($filename);
+	$ext = $arr['extension'];
+	return $ext;
 }
 
 //check post data is set

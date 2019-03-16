@@ -112,7 +112,6 @@ $arrlength = count($paths);
             $('#myModal_EndPoint').modal('toggle');
         }
 
-
         function displaydata(data) {
             var pd = data.pathData;
             // First table
