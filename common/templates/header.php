@@ -12,14 +12,15 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
-          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+<!--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"-->
+<!--          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">-->
+
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
     integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="/lamp2project_group2/common/css/all.css" rel="stylesheet" >
-    <link rel="stylesheet" href="/lamp2project_group2/common/css/font-awesome.min.css" rel="stylesheet" >
+<!--    <link rel="stylesheet" href="/lamp2project_group2/common/css/all.css" rel="stylesheet" >-->
+<!--    <link rel="stylesheet" href="/lamp2project_group2/common/css/font-awesome.min.css" rel="stylesheet" >-->
     <link rel="stylesheet" href="/lamp2project_group2/common/css/main.css" rel="stylesheet" >
     <link rel="stylesheet" href="/lamp2project_group2/common/css/bootstrap.css" rel="stylesheet">
 

@@ -17,6 +17,7 @@ $(document).ready(function () {
     });
 
     const onGenPost = function (response) {
+        console.log(response);
         if (response.status === "success") {
             const genWithIDToUpdate = data.pathData;
 
