@@ -35,7 +35,7 @@
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse  offset-md-1" id="navbarNav">
+    <div class="collapse navbar-collapse " id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item">
                 <a class="nav-link" href="/lamp2project_group2/"><i class="fa fa-home" style="margin-right: 5px"></i>Home</span></a>
@@ -59,6 +59,13 @@
                    href="/lamp2project_group2/part_1/includes/resetData.php"><i
                             class="fa fa-cog" aria-hidden="true" style="margin-right: 5px"></i>Reset Data</a>
             </li>
+
+            <li class="nav-item">
+                <a class="nav-link"
+                   href="/lamp2project_group2/part_3/includes/path_loss_statics.php"><i
+                            class="fas fa-chart-area" aria-hidden="true" style="margin-right: 5px"></i>Data Statics</a>
+            </li>
+
         </ul>
     </div>
 </nav>
