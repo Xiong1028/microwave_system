@@ -39,15 +39,20 @@ if (!is_null($genDataArr['genPathInfoid'])) {
 		echo '{ "status": "failOnGen" ,"data":' . json_encode($err_gen_data) . '}';
 	} else {
 		//prevent SQL injection of path_general
-		//$genDataArr = db_prevent_SQLInjection($db_conn, $genDataArr);
-
+		$genDataArr = db_prevent_SQLInjection($db_conn, $genDataArr);
+	
+		
+		/*
 		$qry = "UPDATE path_general SET path_length =" .$db_conn->real_escape_string((float)$genDataArr['genPathInfoLen'] ). ", description = '" . $db_conn->real_escape_string($genDataArr['genPathInfoDesc']) . "', note='" . $db_conn->real_escape_string($genDataArr['genPathInfoNote']) . "' WHERE path_ID =" . $db_conn->real_escape_string($genDataArr['genPathInfoid']) . ";";
+		*/
 
-		$db_conn->query($qry);
+		$qry = "UPDATE path_general SET path_length =" .$genDataArr['genPathInfoLen']. ", description = '" . $genDataArr['genPathInfoDesc']. "', note='" . $genDataArr['genPathInfoNote'] . "' WHERE path_ID =" . $genDataArr['genPathInfoid']. ";";
 
-		echo '{ "status": "success" ,"data":"Success to modify the data"}';
+		// $db_conn->query($qry);
 
-		//updateDataAndReponse($db_conn, $qry);
+		// echo '{ "status": "success" ,"data":"Success to modify the data"}';
+
+		updateDataAndReponse($db_conn, $qry);
 	}
 }
 

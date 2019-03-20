@@ -33,16 +33,21 @@ if (!is_null($midDataArr['midpointid'])) {
 		echo '{ "status": "failOnMid" ,"data":' . json_encode($err_mid_data) . '}';
 	} else {
 		//prevent SQL injection of path_midpoint
-		//$midDataArr = db_prevent_SQLInjection($db_conn, $midDataArr);
+		$midDataArr = db_prevent_SQLInjection($db_conn, $midDataArr);
 
+		/*
 		$qry = "UPDATE path_midPoints SET grd_height =" . $db_conn->real_escape_string((float)$midDataArr['midgheight']) . ", trn_type = '" . $db_conn->real_escape_string($midDataArr['midtrntype']). "', obstr_height=" . $db_conn->real_escape_string((float)$midDataArr['midobheight']) . ", obstr_type='" . $db_conn->real_escape_string($midDataArr['midobtype']) . "' WHERE path_midpt_ID=" .$db_conn->real_escape_string($midDataArr['midpointid']). ";";
+		*/
 
-		$db_conn->query($qry);
+		$qry = "UPDATE path_midPoints SET grd_height = " . (float)$midDataArr['midgheight'] . ", trn_type = '" . $midDataArr['midtrntype']. "', obstr_height=" . (float)$midDataArr['midobheight']. ", obstr_type='" . $midDataArr['midobtype'] . "' WHERE path_midpt_ID=" .$midDataArr['midpointid']. ";";
+		
 
-		echo '{ "status": "success" ,"data":"Success to modify the data"}';
+		//$db_conn->query($qry);
+
+		// echo '{ "status": "success" ,"data":"Success to modify the data"}';
 
 		//updateDataAndReponse($db_conn, $qry, (int)$midDataArr['pathid']);
-		//updateDataAndReponse($db_conn, $qry);
+		updateDataAndReponse($db_conn, $qry);
 	}
 }
 

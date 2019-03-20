@@ -25,7 +25,7 @@ $pathFileName = check_file_existed("./uploads", $pathFileName);
 
 $ext = getExt4($pathFileName);
 
-//var_dump(!$ext);
+//var_dump($ext);
 //var_dump(!in_array($ext, ["csv", "CSV"]));
 
 if (!$ext) {
@@ -35,6 +35,7 @@ if (!$ext) {
 		echo '{ "code": "404" ,"data":{"msg":"The file must be csv type"}}';
 	}
 }
+
 
 if ($pathFileName) {
 
@@ -108,4 +109,5 @@ if ($pathFileName) {
 	}
 	disconnect_db($db_conn);
 }
+
 ?>

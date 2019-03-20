@@ -101,8 +101,11 @@ function db_select_oneCol($db_conn, $tableName, $objColName)
 function db_prevent_SQLInjection($db_conn, $dataArr)
 {
 	if (is_array($dataArr)) {
-		for ($i = 0; $i < count($dataArr); $i++) {
-			db_prevent_SQLInjection($db_conn, $dataArr[$i]);
+		// for ($i = 0; $i < count($dataArr); $i++) {
+		// 	db_prevent_SQLInjection($db_conn, $dataArr[$i]);
+		// }
+		foreach($dataArr as $key=>$v){
+			db_prevent_SQLInjection($db_conn, $dataArr[$key]);
 		}
 	} else {
 		$dataArr = $db_conn->real_escape_string(trim($dataArr));
