@@ -90,7 +90,6 @@ function db_select_oneCol($db_conn, $tableName, $objColName)
 	return $colData;
 }
 
-
 /**
  *  Purpose: a function to prevent sql injection
  *  Parameters: @db_conn
@@ -98,17 +97,18 @@ function db_select_oneCol($db_conn, $tableName, $objColName)
  *  return: Array
  */
 
+ 
 function db_prevent_SQLInjection($db_conn, $dataArr)
 {
 	if (is_array($dataArr)) {
-		for ($i = 0; $i < count($dataArr); $i++) {
-			db_prevent_SQLInjection($db_conn, $dataArr[$i]);
+		foreach($dataArr as $k =>$v) {
+			db_prevent_SQLInjection($db_conn, $dataArr[$k]);
 		}
 	} else {
 		$dataArr = $db_conn->real_escape_string(trim($dataArr));
 	}
 	return $dataArr;
-}
+} 
 
 //get all the data from database
 function db_get_all_data($db_conn,$selected_val)

@@ -18,6 +18,7 @@ $genDataArr['genPathInfoLen'] = check_post_data($_POST['genPathInfoLen']);
 $genDataArr['genPathInfoDesc'] = check_post_data($_POST['genPathInfoDesc']);
 $genDataArr['genPathInfoNote'] = check_post_data($_POST['genPathInfoNote']);
 
+
 $db_conn = connect_db();
 
 if (!is_null($genDataArr['genPathInfoid'])) {
@@ -29,8 +30,9 @@ if (!is_null($genDataArr['genPathInfoid'])) {
 		echo '{ "status": "failOnGen" ,"data":' . json_encode($err_gen_data) . '}';
 	} else {
 		//prevent SQL injection of path_general
+		
 		$genDataArr = db_prevent_SQLInjection($db_conn, $genDataArr);
-
+	
 		$qry = "UPDATE path_general SET path_length =" . $genDataArr['genPathInfoLen'] . ", description = '" . $genDataArr['genPathInfoDesc'] . "', note='" . $genDataArr['genPathInfoNote'] . "' WHERE path_ID =" . $genDataArr['genPathInfoid'] . ";";
 
 		updateDataAndReponse($db_conn, $qry);
