@@ -45,6 +45,7 @@ $(document).ready(function () {
     }
 
     const onMidPost = function (response) {
+        console.log(response);
         if (response.status === "success") {
             console.log($('#midpointid').val());
             var midWithIDToUpdate = data.midpoints.find(function (el) {
