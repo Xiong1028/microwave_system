@@ -12,12 +12,12 @@ require_once("../../../common/utilities/utilities.php");
 //general Modal data
 $genDataArr = array();
 
+
 $genDataArr['genPathInfoid'] = check_post_data($_POST['genPathInfoid']);
 $genDataArr['genPathInfoName'] = check_post_data($_POST['genPathInfoName']);
 $genDataArr['genPathInfoLen'] = check_post_data($_POST['genPathInfoLen']);
 $genDataArr['genPathInfoDesc'] = check_post_data($_POST['genPathInfoDesc']);
 $genDataArr['genPathInfoNote'] = check_post_data($_POST['genPathInfoNote']);
-
 
 $db_conn = connect_db();
 
@@ -33,11 +33,17 @@ if (!is_null($genDataArr['genPathInfoid'])) {
 		
 		$genDataArr = db_prevent_SQLInjection($db_conn, $genDataArr);
 	
-		$qry = "UPDATE path_general SET path_length =" . $genDataArr['genPathInfoLen'] . ", description = '" . $genDataArr['genPathInfoDesc'] . "', note='" . $genDataArr['genPathInfoNote'] . "' WHERE path_ID =" . $genDataArr['genPathInfoid'] . ";";
+
+		$qry = "UPDATE path_general SET path_length =" .$genDataArr['genPathInfoLen']. ", description = '" . $genDataArr['genPathInfoDesc']. "', note='" . $genDataArr['genPathInfoNote'] . "' WHERE path_ID =" . $genDataArr['genPathInfoid']. ";";
+
+		// $db_conn->query($qry);
+
+		// echo '{ "status": "success" ,"data":"Success to modify the data"}';
 
 		updateDataAndReponse($db_conn, $qry);
 	}
 }
 
 disconnect_db($db_conn);
+
 ?>

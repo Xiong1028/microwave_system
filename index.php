@@ -18,40 +18,49 @@ and satellite communications. In this project, We provide three parts.</p>
 <h3>Part 1</h3>
 <hr>
 <div class="row">
-<div class="card bg-success col-md-3">
+<div class="col-md-3">
     <div class="card-body">
-        <a class="text-white" href="/lamp2project_group2/part_1/includes/uploads.php" style="font-size:150%;text-decoration:underline">Upload File</a>
+        <a class="text-black" href="/lamp2project_group2/part_1/includes/uploads.php" style="font-size:120%;text-decoration:underline">Upload File</a>
     </div>
   </div>
   <br>
-  <div class="card bg-info col-md-3 offset-md-1">
+  <div class=" col-md-3 offset-md-1">
     <div class="card-body">
-        <a href="/lamp2project_group2/part_1/includes/display_data.php" class="text-white"  style="font-size:150%;text-decoration:underline">Display Data</a>
+        <a href="/lamp2project_group2/part_1/includes/display_data.php" class="text-black"  style="font-size:120%;text-decoration:underline">Display Data</a>
     </div>
   </div>
   <br>
-  <div class="card bg-danger col-md-3 offset-md-1">
+  <div class="col-md-3 offset-md-1">
     <div class="card-body">
-        <a href="/lamp2project_group2/part_1/includes/resetData.php" class="text-white"  style="font-size:150%;text-decoration:underline">Reset Data</a>
+        <a href="/lamp2project_group2/part_1/includes/resetData.php" class="text-black"  style="font-size:120%;text-decoration:underline">Reset Data</a>
     </div>
   </div>
   </div>
-  <br>
   <br>
 
 
 <h3>Part 2</h3>
 <hr>
 <div class="row">
-<div class="card bg-success col-md-3">
+<div class="col-md-3">
     <div class="card-body">
-        <a class="text-white" href="/lamp2project_group2/part_2/includes/send_to_editing.php" style="font-size:150%;text-decoration:underline">Edit Data</a>
+        <a class="text-black" href="/lamp2project_group2/part_2/includes/send_to_editing.php" style="font-size:120%;text-decoration:underline">Edit Data</a>
     </div>
 </div>
 </div>
+<br>
   
 
 <!--Part 3 will goes here-->
+<h3>Part 3</h3>
+<hr>
+<div class="row">
+<div class="col-md-3">
+    <div class="card-body">
+        <a class="text-black" href="/lamp2project_group2/part_3/includes/path_loss_statics.php" style="font-size:120%;text-decoration:underline">Data Statics</a>
+    </div>
+</div>
+</div>
 
 
 </div>
