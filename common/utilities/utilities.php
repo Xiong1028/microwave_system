@@ -130,4 +130,82 @@ function valid_edit_mid($postMid)
 	return $errArr;
 }
 
+
+//A function to calculate data and response the data for request
+function calData($db_conn,$selectedPathId, $selectedCurv){
+	$allPathData = db_get_all_data($db_conn,(int)$selectedPathId);
+	$curPathData = json_decode($allPathData);
+
+	$pathData = $curPathData->pathData;
+	$midPointData = $curPathData->midpoints;
+	$endPointData = $curPathData->endpoints;
+
+	$Fghz = (float)$pathData->length;
+
+	$totalDistance = 0;
+	foreach ($endPointData as $v){
+		if((float)$v->distance != 0.0){
+			$totalDistance =(float)$v->distance;
+		}
+	}
+	switch($selectedCurv){
+		case '4/3':
+			calDataByCurv($curPathData,$endPointData,$midPointData,$totalDistance,$Fghz,17);
+			break;
+		case '1':
+			calDataByCurv($curPathData,$endPointData,$midPointData,$totalDistance,$Fghz,12.75);
+			break;
+		case '2/3':
+			calDataByCurv($curPathData,$endPointData,$midPointData,$totalDistance,$Fghz,8.5);
+			break;
+		default:
+			calDataByCurv($curPathData,$endPointData,$midPointData,$totalDistance,$Fghz,null);
+			break;
+	}
+}
+
+//A function to calculate kinds of data in midPoints;
+function calDataByCurv($curPathData,$endPointData,$midPointData,$totalDistance,$Fghz,$curvRatio){
+
+	//DataSet for graph
+	$PaArr = array();
+	$FistFreZoneArr = array();
+	$GrdAndObsArr = array();
+
+	foreach ($midPointData as $k => $v){
+		//caculate curvature height
+		if($curvRatio){
+			$curHeight = ((float)$midPointData[$k]->distance *($totalDistance-(float)$midPointData[$k]->distance))/$curvRatio;
+		}else{
+			$curHeight = 0;
+		}
+
+		$midPointData[$k]->curHeight = round($curHeight,4);
+
+		//caculate Apparent Ground and Obstructuion Height
+		$midPointData[$k]->AptGrdHeight = $midPointData[$k]->groundHeight + $midPointData[$k]->obstrHeight + $midPointData[$k]->curHeight;
+
+		$GrdAndObsArr[$midPointData[$k]->distance] = round($midPointData[$k]->AptGrdHeight,4);
+
+		//caculate 1st Freznel Zone
+		$FistFreZone = 17.3 * sqrt(((float)$midPointData[$k]->distance *($totalDistance-(float)$midPointData[$k]->distance))/($Fghz * $totalDistance));
+		$midPointData[$k]->FistFreZone = round($FistFreZone,4);
+
+		//caculate Total Clearance Height
+		$midPointData[$k]->totClrHeight = round($midPointData[$k]->AptGrdHeight + $midPointData[$k]->FistFreZone,4);
+
+		$FistFreZoneArr[$midPointData[$k]->distance] =
+			$midPointData[$k]->totClrHeight;
+	}
+	//data below are used for graph
+	$PaArr[$midPointData[0]->distance]= 92.4 + 20 * log($Fghz,10) + 20 * log($midPointData[0]->distance,10);
+	$PaArr[$endPointData[1]->distance] = 92.4 + 20 * log($Fghz,10) + 20 * log($totalDistance,10);
+
+	$curPathData->PAData = $PaArr;
+	$curPathData->GrdAndObsData = $GrdAndObsArr;
+	$curPathData->FistFreZoneData = $FistFreZoneArr;
+	
+	echo json_encode($curPathData);
+}
+
 ?>

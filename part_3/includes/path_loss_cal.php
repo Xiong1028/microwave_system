@@ -10,17 +10,12 @@ header("Content-Type: application/json");
 require_once("../../common/utilities/dbHandler.php");
 require_once("../../common/utilities/utilities.php");
 
-//$_POST['selectedPath'] = check_post_data($_POST['selectedPath']);
-//$_POST["selectedCurv"] = check_post_data($_POST["selectedCurv"]);
-
+$_POST['selectedPath'] = check_post_data($_POST['selectedPath']);
+$_POST["selectedCurv"] = check_post_data($_POST["selectedCurv"]);
 
 $db_conn = connect_db();
 
-//echo $_POST['selectedPath']." By ".$_POST["selectedCurv"];
-
 calData($db_conn,$_POST['selectedPath'],$_POST['selectedCurv']);
-//calData($db_conn,1,4/3);
 
 disconnect_db($db_conn);
-
 ?>

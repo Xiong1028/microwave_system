@@ -13,6 +13,6 @@ $(document).ready(function(){
 })
 
 const onPathLossCal = function(response){
-    console.log(response);
+    
 
 }
