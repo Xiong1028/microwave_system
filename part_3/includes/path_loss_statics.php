@@ -56,13 +56,11 @@ $arrlength = count($paths);
                 <input type="submit" name="submit" value="Submit"
                        class="btn btn-outline-secondary"/>
             </div>
-            <!-- respond msg here -->
-            <div id="msg" style="margin-bottom: 20px;color: blue;font-size: 150%"></div>
         </form>
-        
-
+        <!--output the graph here-->
+        <div id="pa_graph"></div>
         <!-- output the tables and graphic -->
-        <div id="output"></div>
+        <div id="pa_output"></div>
 
     </div>
 
