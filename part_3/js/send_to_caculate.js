@@ -46,21 +46,24 @@ const onPathLossCal = function(response){
     $("#pa_output").html(table);
 
 
-    // Generate graph
+    // Display path loss calculation result
     var graph = "<h4>Calculaton Results</h4><p>Path Attenuation (dB): " + response.PAData['1.5000'] + "</p><br/><br/>";
     $('#pa_text').html(graph);
 
+    // Find the max value as the maximum of yaxis
     var max = 0;
-    for (var i = 0; i < sd.length-1; i++) {
-        if (sd[i].totClrHeight >= sd[i+1].totClrHeight){
-            var ceilValue = Math.ceil(sd[i].totClrHeight / 10) * 10; 
-            max = ceilValue;
+    for (var i = 0; i < sd.length; i++) {
+        if (sd[i].totClrHeight >= max){ 
+            max = sd[i].totClrHeight;
         }
     }
-    if ((parseInt(td[1].groundHeight) + parseInt(td[1].atnHeight)) >= max) {
-        max = Math.ceil((parseInt(td[1].groundHeight) + parseInt(td[1].atnHeight)) / 10) * 10;
-    }
+    var pathEnd = parseInt(td[1].groundHeight) + parseInt(td[1].atnHeight);
+    if (pathEnd >= max) {
+        max = pathEnd;
+    } 
+    max = Math.ceil(max / 10) * 10;
 
+    // Generate graph
     var chart = new CanvasJS.Chart("pa_graph", {
         theme: "light2",
         title:{
@@ -74,13 +77,14 @@ const onPathLossCal = function(response){
         axisY: {
             interval: 10,
             minimum: 0,
-            maximum: max    
+            maximum: max   
         },      
         legend:{
             verticalAlign: "top",
             horizontalAlign: "right",
         },
-        data: [{
+        data: [
+        {
             type: "line",
             showInLegend: true,
             name: "Path",
@@ -97,7 +101,7 @@ const onPathLossCal = function(response){
             color: "green",
             dataPoints: 
             [
-                { x: td[0].distance, y: td[0].groundHeight },
+                { x: td[0].distance, y: parseFloat(td[0].groundHeight) },
                 { x: sd[0].distance, y: sd[0].AptGrdHeight },
                 { x: sd[1].distance, y: sd[1].AptGrdHeight },
                 { x: sd[2].distance, y: sd[2].AptGrdHeight },
@@ -112,7 +116,7 @@ const onPathLossCal = function(response){
                 { x: sd[11].distance, y: sd[11].AptGrdHeight },
                 { x: sd[12].distance, y: sd[12].AptGrdHeight },
                 { x: sd[13].distance, y: sd[13].AptGrdHeight },
-                { x: td[1].distance, y: td[1].groundHeight }                
+                { x: td[1].distance, y: parseFloat(td[1].groundHeight) }                
             ]    
         },
         {
@@ -121,7 +125,7 @@ const onPathLossCal = function(response){
             name: "1st Freznel",
             color: "red",
             dataPoints: [
-                { x: td[0].distance, y: td[0].groundHeight },
+                { x: td[0].distance, y: parseFloat(td[0].groundHeight) },
                 { x: sd[0].distance, y: sd[0].totClrHeight },
                 { x: sd[1].distance, y: sd[1].totClrHeight },
                 { x: sd[2].distance, y: sd[2].totClrHeight },
@@ -136,7 +140,7 @@ const onPathLossCal = function(response){
                 { x: sd[11].distance, y: sd[11].totClrHeight },
                 { x: sd[12].distance, y: sd[12].totClrHeight },
                 { x: sd[13].distance, y: sd[13].totClrHeight },
-                { x: td[1].distance, y: td[1].groundHeight }               
+                { x: td[1].distance, y: parseFloat(td[1].groundHeight) }               
             ]
         }
     ]   
