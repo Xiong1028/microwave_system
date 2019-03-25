@@ -47,6 +47,7 @@ const onPathLossCal = function(response){
 
 
     // Display path loss calculation result
+    
     var graph = "<h4>Calculaton Results</h4><p>Path Attenuation (dB): " + response.PAData['1.5000'] + "</p><br/><br/>";
     $('#pa_text').html(graph);
 
@@ -71,8 +72,8 @@ const onPathLossCal = function(response){
         },
         axisX:{
             interval: parseInt(sd[0].distance),
-            minimum: td[0].distance,
-            maximum: td[1].distance            
+            minimum: parseFloat(td[0].distance) - 0.01,
+            maximum: parseFloat(td[1].distance) + 0.05            
         },
         axisY: {
             interval: 10,
