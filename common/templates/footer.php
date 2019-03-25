@@ -11,6 +11,7 @@
 <!--<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>-->
 <script src="/lamp2project_group2/common/js/popper.min.js"></script>
 <script src ="/lamp2project_group2/common/js/bootstrap.min.js"></script>
+<script src="/lamp2project_group2/common/js/canvasjs.min.js"></script>
 <script src="/lamp2project_group2/part_1/js/ResetAjax.js"></script>
 <script src="/lamp2project_group2/part_2/js/send_to_editing_ajax.js"></script>
 <script src="/lamp2project_group2/part_3/js/send_to_caculate.js"></script>

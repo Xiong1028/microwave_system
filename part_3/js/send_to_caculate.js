@@ -13,8 +13,9 @@ $(document).ready(function(){
 })
 
 const onPathLossCal = function(response){
-    console.log(response.midpoints);
+    console.log(response);
 
+    // Generate tables
     var pd = response.pathData;
     // First table
     var table = "<h4>Path_General</h4><table class='table table-striped table-hover'><tr><th>Path Name</th><th>Path length</th><th>Description</th><th>Note</th></tr>";
@@ -43,4 +44,102 @@ const onPathLossCal = function(response){
 
     table+="</table>";
     $("#pa_output").html(table);
+
+
+    // Generate graph
+    var graph = "<h4>Calculaton Results</h4><p>Path Attenuation (dB): " + response.PAData['1.5000'] + "</p><br/><br/>";
+    $('#pa_text').html(graph);
+
+    var max = 0;
+    for (var i = 0; i < sd.length-1; i++) {
+        if (sd[i].totClrHeight >= sd[i+1].totClrHeight){
+            var ceilValue = Math.ceil(sd[i].totClrHeight / 10) * 10; 
+            max = ceilValue;
+        }
+    }
+    if ((parseInt(td[1].groundHeight) + parseInt(td[1].atnHeight)) >= max) {
+        max = Math.ceil((parseInt(td[1].groundHeight) + parseInt(td[1].atnHeight)) / 10) * 10;
+    }
+
+    var chart = new CanvasJS.Chart("pa_graph", {
+        theme: "light2",
+        title:{
+            text: response.pathData.name + " with curvature 4/3"
+        },
+        axisX:{
+            interval: parseInt(sd[0].distance),
+            minimum: td[0].distance,
+            maximum: td[1].distance            
+        },
+        axisY: {
+            interval: 10,
+            minimum: 0,
+            maximum: max    
+        },      
+        legend:{
+            verticalAlign: "top",
+            horizontalAlign: "right",
+        },
+        data: [{
+            type: "line",
+            showInLegend: true,
+            name: "Path",
+            color: "blue",
+            dataPoints: [
+                { x: td[0].distance, y: parseInt(td[0].groundHeight) + parseInt(td[0].atnHeight) },
+                { x: td[1].distance, y: parseInt(td[1].groundHeight) + parseInt(td[1].atnHeight) }
+            ]
+        },
+        {
+            type: "line",
+            showInLegend: true,
+            name: "Gnd + Obs",
+            color: "green",
+            dataPoints: 
+            [
+                { x: td[0].distance, y: td[0].groundHeight },
+                { x: sd[0].distance, y: sd[0].AptGrdHeight },
+                { x: sd[1].distance, y: sd[1].AptGrdHeight },
+                { x: sd[2].distance, y: sd[2].AptGrdHeight },
+                { x: sd[3].distance, y: sd[3].AptGrdHeight },
+                { x: sd[4].distance, y: sd[4].AptGrdHeight },
+                { x: sd[5].distance, y: sd[5].AptGrdHeight },
+                { x: sd[6].distance, y: sd[6].AptGrdHeight },
+                { x: sd[7].distance, y: sd[7].AptGrdHeight },
+                { x: sd[8].distance, y: sd[8].AptGrdHeight },
+                { x: sd[9].distance, y: sd[9].AptGrdHeight },
+                { x: sd[10].distance, y: sd[10].AptGrdHeight },
+                { x: sd[11].distance, y: sd[11].AptGrdHeight },
+                { x: sd[12].distance, y: sd[12].AptGrdHeight },
+                { x: sd[13].distance, y: sd[13].AptGrdHeight },
+                { x: td[1].distance, y: td[1].groundHeight }                
+            ]    
+        },
+        {
+            type: "line",
+            showInLegend: true,
+            name: "1st Freznel",
+            color: "red",
+            dataPoints: [
+                { x: td[0].distance, y: td[0].groundHeight },
+                { x: sd[0].distance, y: sd[0].totClrHeight },
+                { x: sd[1].distance, y: sd[1].totClrHeight },
+                { x: sd[2].distance, y: sd[2].totClrHeight },
+                { x: sd[3].distance, y: sd[3].totClrHeight },
+                { x: sd[4].distance, y: sd[4].totClrHeight },
+                { x: sd[5].distance, y: sd[5].totClrHeight },
+                { x: sd[6].distance, y: sd[6].totClrHeight },
+                { x: sd[7].distance, y: sd[7].totClrHeight },
+                { x: sd[8].distance, y: sd[8].totClrHeight },
+                { x: sd[9].distance, y: sd[9].totClrHeight },
+                { x: sd[10].distance, y: sd[10].totClrHeight },
+                { x: sd[11].distance, y: sd[11].totClrHeight },
+                { x: sd[12].distance, y: sd[12].totClrHeight },
+                { x: sd[13].distance, y: sd[13].totClrHeight },
+                { x: td[1].distance, y: td[1].groundHeight }               
+            ]
+        }
+    ]   
+    });
+    chart.render();
 }

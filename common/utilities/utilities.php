@@ -199,7 +199,7 @@ function calDataByCurv($curPathData,$endPointData,$midPointData,$totalDistance,$
 	}
 	//data below are used for graph
 	$PaArr[$midPointData[0]->distance]= 92.4 + 20 * log($Fghz,10) + 20 * log($midPointData[0]->distance,10);
-	$PaArr[$endPointData[1]->distance] = 92.4 + 20 * log($Fghz,10) + 20 * log($totalDistance,10);
+	$PaArr[$endPointData[1]->distance] = round((92.4 + 20 * log($Fghz,10) + 20 * log($totalDistance,10)), 4);	
 
 	$curPathData->PAData = $PaArr;
 	$curPathData->GrdAndObsData = $GrdAndObsArr;
@@ -207,5 +207,6 @@ function calDataByCurv($curPathData,$endPointData,$midPointData,$totalDistance,$
 	
 	echo json_encode($curPathData);
 }
+
 
 ?>
