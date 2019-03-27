@@ -58,7 +58,8 @@ $arrlength = count($paths);
             </div>
         </form>
         <!--output the graph here-->
-        <div id="pa_graph"></div>
+        <div id="pa_graph">
+        </div>
         <!-- output the tables and graphic -->
         <div id="pa_output"></div>
 

@@ -204,7 +204,7 @@ function calDataByCurv($curPathData,$endPointData,$midPointData,$totalDistance,$
 	$curPathData->PAData = $PaArr;
 	$curPathData->GrdAndObsData = $GrdAndObsArr;
 	$curPathData->FistFreZoneData = $FistFreZoneArr;
-	
+
 	echo json_encode($curPathData);
 }
 
