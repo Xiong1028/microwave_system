@@ -128,7 +128,7 @@ function db_get_all_data($db_conn,$selected_val)
 
 	$midPointsArr = array();
 
-	$qry = "select path_midpt_ID,dist_from_start ,grd_height,trn_type,obstr_height,obstr_type  from path_midPoints where path_ID=" . $selected_val . " ;";
+	$qry = "select path_midpt_ID,dist_from_start ,grd_height,trn_type,obstr_height,obstr_type from path_midPoints where path_ID=" . $selected_val . " ;";
 	$rs = $db_conn->query($qry);
 	if ($rs->num_rows > 0) {
 		while ($row = $rs->fetch_assoc()) {

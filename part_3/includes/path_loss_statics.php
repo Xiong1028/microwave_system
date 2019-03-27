@@ -44,13 +44,14 @@ $arrlength = count($paths);
             </select>
 
             <!-- a select for earth curvature-->
-            <label for="selectedCurv">Earcth Curvature:</label>
+            <label for="selectedCurv">&nbsp;&nbsp;&nbsp;Earth Curvature:</label>
              <select name="selectedCurv" id="selectedCurv">
                             <option value="4/3">4/3</option>
                             <option value="1">1</option>
                             <option value="2/3">2/3</option>
                             <option value="infinity"><span style="font-size:150%">∞</span></option>
-             </select>               
+             </select> 
+             <br/><br/>              
             
             <div style="margin-bottom:50px;">
                 <input type="submit" name="submit" value="Submit"
@@ -58,8 +59,9 @@ $arrlength = count($paths);
             </div>
         </form>
         <!--output the graph here-->
-        <div id="pa_graph">
-        </div>
+        <div id="pa_text"></div>
+        <div id="pa_graph" style="width: 100%; height: 400px;display: inline-block;"></div>
+        <br/><br/><br/><br/>
         <!-- output the tables and graphic -->
         <div id="pa_output"></div>
 

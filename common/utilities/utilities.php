@@ -169,8 +169,6 @@ function calDataByCurv($curPathData,$endPointData,$midPointData,$totalDistance,$
 
 	//DataSet for graph
 	$PaArr = array();
-	$FistFreZoneArr = array();
-	$GrdAndObsArr = array();
 
 	foreach ($midPointData as $k => $v){
 		//caculate curvature height
@@ -198,14 +196,13 @@ function calDataByCurv($curPathData,$endPointData,$midPointData,$totalDistance,$
 			$midPointData[$k]->totClrHeight;
 	}
 	//data below are used for graph
-	$PaArr[$midPointData[0]->distance]= 92.4 + 20 * log($Fghz,10) + 20 * log($midPointData[0]->distance,10);
-	$PaArr[$endPointData[1]->distance] = 92.4 + 20 * log($Fghz,10) + 20 * log($totalDistance,10);
+	$PaArr[$endPointData[1]->distance] = round((92.4 + 20 * log10($Fghz) + 20 * log10($totalDistance)), 4);	
 
 	$curPathData->PAData = $PaArr;
-	$curPathData->GrdAndObsData = $GrdAndObsArr;
-	$curPathData->FistFreZoneData = $FistFreZoneArr;
+	
 
 	echo json_encode($curPathData);
 }
+
 
 ?>
