@@ -15,9 +15,21 @@
 
 ### *Main page*
 
-------
+
 
 ![main page](<https://github.com/Xiong1028/pictures/blob/master/ms01.jpg>)
+
+
+
+### *upload file*
+
+when user upload the microwave CSV files,  the web application will read all the data from CSV files and insert the data into mysql database.
+
+![](<https://github.com/Xiong1028/pictures/blob/master/ms02.gif>)
+
+
+
+### *Display data*
 
 
 
