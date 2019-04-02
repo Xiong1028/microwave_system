@@ -15,11 +15,15 @@
 
 ### *Main page*
 
+------
+
 ![main page](<https://github.com/Xiong1028/pictures/blob/master/ms01.jpg>)
 
 
 
 ### *Upload file*
+
+------
 
 when users upload the microwave CSV files,  the web application will read all the data from CSV files and insert the data into mysql database.
 
@@ -29,13 +33,27 @@ when users upload the microwave CSV files,  the web application will read all th
 
 ### *Display data*
 
+------
+
 when all the data are saved in the databases, choose display data button, launch Ajax requests to the back-end server and display the responses in the three seperated tables.
 
 ![](<https://github.com/Xiong1028/pictures/blob/master/ms03.jpg>)
 
 
 
+### *Modify data*
+
+------
+
+This feature allows users to modify the microwave data and update the data into the databases.
+
+![](<https://github.com/Xiong1028/pictures/blob/master/ms06.gif>)
+
+
+
 ### *Reset data*
+
+------
 
 After users modify the data, there is a feature to allow the user to reset the data to original status.
 
@@ -45,7 +63,7 @@ After users modify the data, there is a feature to allow the user to reset the d
 
 ### *Data statistics*
 
-Display the data in some charts.
+------
 
 when users choose the path name and earth curvature, it will launch the Ajax request with the path name and earth curvature. In the back-end, it will caculate and return  all the microwave data,  displaying it in some charts on the web page.
 
